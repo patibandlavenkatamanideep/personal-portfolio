@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Send, MessageSquare, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -53,13 +53,24 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-full mb-6 backdrop-blur-sm">
+            <MessageSquare className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium">Let's Connect</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Get In{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Touch
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Touch
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 blur-lg opacity-50 -z-10" />
             </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -68,95 +79,125 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Enhanced Contact Form */}
           <div className="animate-fade-in">
-            <div className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border">
-              <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Your Name</label>
-                  <Input
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background/50"
-                    required
-                  />
+            <div className="relative p-10 rounded-3xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl" />
+              
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30">
+                    <Send className="h-6 w-6 text-primary" />
+                  </div>
+                  <h2 className="text-2xl font-bold">Send a Message</h2>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email Address</label>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background/50"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Tell About the Project</label>
-                  <Textarea
-                    placeholder="I'd like to discuss..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-background/50 min-h-[150px]"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="group">
+                    <label className="block text-sm font-semibold mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
+                    <Input
+                      placeholder="John Doe"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="bg-background/50 border-border focus:border-primary transition-colors h-12"
+                      required
+                    />
+                  </div>
+                  <div className="group">
+                    <label className="block text-sm font-semibold mb-2 group-focus-within:text-primary transition-colors">Email Address</label>
+                    <Input
+                      type="email"
+                      placeholder="john@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="bg-background/50 border-border focus:border-primary transition-colors h-12"
+                      required
+                    />
+                  </div>
+                  <div className="group">
+                    <label className="block text-sm font-semibold mb-2 group-focus-within:text-primary transition-colors">Tell About the Project</label>
+                    <Textarea
+                      placeholder="I'd like to discuss..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="bg-background/50 border-border focus:border-primary transition-colors min-h-[160px] resize-none"
+                      required
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full group bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
+                  >
+                    <Send className="mr-2 h-5 w-5 group-hover:-rotate-45 transition-transform" />
+                    Send Message
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
 
-          {/* Contact Information */}
+          {/* Enhanced Contact Information */}
           <div className="space-y-6 animate-fade-in-delay">
-            <div className="p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <div key={index} className="flex items-start gap-4 group">
-                      <div className={`p-3 rounded-lg bg-${info.color}/10 group-hover:bg-${info.color}/20 transition-colors flex-shrink-0`}>
-                        <Icon className={`h-5 w-5 text-${info.color}`} />
+            <div className="relative p-10 rounded-3xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-secondary/10 to-accent/10 rounded-full blur-2xl" />
+              
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30">
+                    <Mail className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h2 className="text-2xl font-bold">Contact Information</h2>
+                </div>
+                
+                <div className="space-y-5">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <div key={index} className="group flex items-start gap-4 p-4 rounded-xl hover:bg-muted/30 transition-all">
+                        <div className={`p-3 rounded-xl bg-gradient-to-br from-${info.color}/20 to-${info.color}/10 group-hover:from-${info.color}/30 group-hover:to-${info.color}/20 transition-all flex-shrink-0 border border-${info.color}/20`}>
+                          <Icon className={`h-5 w-5 text-${info.color}`} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm text-muted-foreground font-medium mb-1">{info.label}</p>
+                          {info.href ? (
+                            <a
+                              href={info.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-semibold hover:text-primary transition-colors text-base"
+                            >
+                              {info.value}
+                            </a>
+                          ) : (
+                            <p className="font-semibold text-base">{info.value}</p>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                        {info.href ? (
-                          <a
-                            href={info.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium hover:text-primary transition-colors"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="font-medium">{info.value}</p>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            <div className="p-8 rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
-              <h3 className="text-xl font-bold mb-3">Open for Opportunities</h3>
-              <p className="text-muted-foreground mb-4">
-                Currently seeking full-time opportunities in Data Science, Machine Learning Engineering, and MLOps roles.
-              </p>
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                Download Resume
-              </Button>
+            <div className="relative p-10 rounded-3xl bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border border-primary/20 backdrop-blur-md overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="h-6 w-6 text-primary animate-pulse" />
+                  <h3 className="text-2xl font-bold">Open for Opportunities</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Currently seeking full-time opportunities in Data Science, Machine Learning Engineering, and MLOps roles.
+                </p>
+                <Button className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all">
+                  <span className="flex items-center">
+                    Download Resume
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
