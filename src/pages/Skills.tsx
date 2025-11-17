@@ -1,4 +1,4 @@
-import { Code, Database, Cloud, Wrench, Brain, TrendingUp } from "lucide-react";
+import { Code, Database, Cloud, Wrench, Brain, TrendingUp, Sparkles, Zap } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
@@ -90,13 +90,24 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-10 right-20 w-80 h-80 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/20 rounded-full mb-6 backdrop-blur-sm">
+            <Zap className="h-4 w-4 text-accent" />
+            <span className="text-sm font-medium">Technical Arsenal</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Technical{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Skills
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Skills
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 blur-lg opacity-50 -z-10" />
             </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -110,55 +121,70 @@ const Skills = () => {
             return (
               <div
                 key={index}
-                className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all hover:scale-[1.02] group animate-fade-in"
+                className="group relative p-7 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-[1.03] hover:shadow-2xl animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-3 rounded-lg bg-${category.color}/10 group-hover:bg-${category.color}/20 transition-colors`}>
-                    <Icon className={`h-6 w-6 text-${category.color}`} />
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-r from-${category.color}/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity`} />
+                
+                <div className="relative">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className={`p-3.5 rounded-xl bg-gradient-to-br from-${category.color}/20 to-${category.color}/10 group-hover:from-${category.color}/30 group-hover:to-${category.color}/20 transition-all border border-${category.color}/20 shadow-lg`}>
+                      <Icon className={`h-6 w-6 text-${category.color}`} />
+                    </div>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{category.title}</h3>
                   </div>
-                  <h3 className="text-xl font-bold">{category.title}</h3>
-                </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1.5 rounded-lg bg-muted/50 backdrop-blur-sm text-sm font-medium border border-border hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all cursor-default hover:scale-105 shadow-sm"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Proficiency Levels */}
-        <div className="mt-16 p-8 rounded-xl bg-card/50 backdrop-blur-sm border border-border animate-fade-in">
-          <h2 className="text-2xl font-bold mb-6 text-center">Key Proficiencies</h2>
-          <div className="space-y-4 max-w-3xl mx-auto">
-            {[
-              { name: "Python & ML Libraries", level: 95, color: "primary" },
-              { name: "SQL & Data Warehousing", level: 90, color: "secondary" },
-              { name: "AWS Cloud Services", level: 85, color: "accent" },
-              { name: "MLOps & Model Deployment", level: 88, color: "primary" },
-              { name: "Data Visualization", level: 92, color: "secondary" },
-            ].map((skill, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className={`text-${skill.color} font-bold`}>{skill.level}%</span>
+        {/* Enhanced Proficiency Levels */}
+        <div className="mt-16 relative p-10 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border animate-fade-in overflow-hidden">
+          <div className="absolute top-4 right-4">
+            <Sparkles className="h-6 w-6 text-primary/30 animate-pulse" />
+          </div>
+          <div className="relative">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-2">Key Proficiencies</h2>
+              <p className="text-muted-foreground">Expert-level mastery in core technologies</p>
+            </div>
+            <div className="space-y-6 max-w-3xl mx-auto">
+              {[
+                { name: "Python & ML Libraries", level: 95, color: "primary" },
+                { name: "SQL & Data Warehousing", level: 90, color: "secondary" },
+                { name: "AWS Cloud Services", level: 85, color: "accent" },
+                { name: "MLOps & Model Deployment", level: 88, color: "primary" },
+                { name: "Data Visualization", level: 92, color: "secondary" },
+              ].map((skill, index) => (
+                <div key={index} className="group space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-lg group-hover:text-primary transition-colors">{skill.name}</span>
+                    <span className={`text-${skill.color} font-bold text-xl px-3 py-1 rounded-lg bg-${skill.color}/10 border border-${skill.color}/20`}>{skill.level}%</span>
+                  </div>
+                  <div className="relative h-3 bg-muted rounded-full overflow-hidden shadow-inner">
+                    <div
+                      className={`h-full bg-gradient-to-r from-${skill.color} via-${skill.color} to-${skill.color}/70 rounded-full transition-all duration-1000 ease-out relative overflow-hidden group-hover:shadow-lg`}
+                      style={{ width: `${skill.level}%`, animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-float" />
+                    </div>
+                  </div>
                 </div>
-                <div className="h-2 bg-muted rounded-full overflow-hidden">
-                  <div
-                    className={`h-full bg-gradient-to-r from-${skill.color} to-${skill.color}/60 rounded-full transition-all duration-1000 ease-out`}
-                    style={{ width: `${skill.level}%`, animationDelay: `${index * 0.1}s` }}
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
