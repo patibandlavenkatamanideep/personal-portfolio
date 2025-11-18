@@ -58,8 +58,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/vmpatibandla",
-      href: "https://linkedin.com",
+      value: "linkedin.com/in/manideep-analytics",
+      href: "https://www.linkedin.com/in/manideep-analytics/",
       color: "secondary",
     },
     {
