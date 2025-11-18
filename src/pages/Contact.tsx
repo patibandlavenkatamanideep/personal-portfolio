@@ -217,11 +217,18 @@ const Contact = () => {
                 <p className="text-muted-foreground leading-relaxed mb-6">
                   Currently seeking full-time opportunities in Data Science, Machine Learning Engineering, and MLOps roles.
                 </p>
-                <Button className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all">
-                  <span className="flex items-center">
+                <Button 
+                  asChild
+                  className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
+                >
+                  <a 
+                    href="/Venkata_Manideep_Patibandla_Resume.pdf" 
+                    download="Venkata_Manideep_Patibandla_Resume.pdf"
+                    className="flex items-center"
+                  >
                     Download Resume
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                  </span>
+                  </a>
                 </Button>
               </div>
             </div>
