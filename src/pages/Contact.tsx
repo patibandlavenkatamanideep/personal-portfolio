@@ -65,8 +65,8 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/vmpatibandla",
-      href: "https://github.com",
+      value: "github.com/patibandlavenkatamanideep",
+      href: "https://github.com/patibandlavenkatamanideep",
       color: "accent",
     },
     {
