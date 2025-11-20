@@ -92,9 +92,19 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
                 </Button>
               </NavLink>
-              <Button size="lg" variant="outline" className="group border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105 shadow-lg">
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                Resume
+              <Button 
+                asChild
+                size="lg" 
+                variant="outline" 
+                className="group border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105 shadow-lg"
+              >
+                <a 
+                  href="/Venkata_Manideep_Patibandla_Resume.pdf" 
+                  download="Venkata_Manideep_Patibandla_Resume.pdf"
+                >
+                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  Resume
+                </a>
               </Button>
               <NavLink to="/contact">
                 <Button size="lg" variant="outline" className="group border-secondary/30 hover:bg-secondary/10 hover:border-secondary/50 transition-all hover:scale-105 shadow-lg">
