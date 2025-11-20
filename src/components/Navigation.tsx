@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, FolderKanban, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Navigation = () => {
@@ -6,12 +6,12 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: "Home", icon: Home },
+    { id: "about", label: "About", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "skills", label: "Skills", icon: Code },
+    { id: "projects", label: "Projects", icon: FolderKanban },
+    { id: "contact", label: "Contact", icon: Mail },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -25,8 +25,8 @@ const Navigation = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -59,18 +59,25 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
-                  activeSection === item.id ? "text-foreground after:w-full" : ""
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`group flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 ${
+                    isActive 
+                      ? "bg-primary/10 text-primary" 
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <Icon className={`h-4 w-4 transition-transform ${isActive ? "scale-110" : "group-hover:scale-110"}`} />
+                  <span className="text-sm font-medium">{item.label}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Mobile menu button */}
@@ -86,18 +93,25 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg">
-          <div className="container mx-auto px-4 py-4 space-y-3">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left py-2 text-muted-foreground hover:text-foreground transition-colors ${
-                  activeSection === item.id ? "text-primary font-medium" : ""
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="container mx-auto px-4 py-4 space-y-2">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg transition-all ${
+                    isActive 
+                      ? "bg-primary/10 text-primary" 
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  }`}
+                >
+                  <Icon className={`h-5 w-5 ${isActive ? "scale-110" : ""}`} />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
