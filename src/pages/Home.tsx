@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { NavLink } from "@/components/NavLink";
 import { Download, Mail, Github, Linkedin, Sparkles, Code2, Database, CloudCog, Brain, TrendingUp } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 
 const Home = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const floatingSkills = [
     { icon: Brain, label: "Machine Learning", color: "primary", position: "top-20 right-[15%]", delay: "0s" },
     { icon: Code2, label: "Python", color: "secondary", position: "top-40 right-[8%]", delay: "0.5s" },
@@ -83,15 +88,17 @@ const Home = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <NavLink to="/projects">
-                <Button size="lg" className="group relative bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all shadow-lg hover:shadow-2xl hover:scale-105">
-                  <span className="relative z-10 flex items-center">
-                    View Projects
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
-                </Button>
-              </NavLink>
+              <Button 
+                onClick={() => scrollToSection("projects")}
+                size="lg" 
+                className="group relative bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all shadow-lg hover:shadow-2xl hover:scale-105"
+              >
+                <span className="relative z-10 flex items-center">
+                  View Projects
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
+              </Button>
               <Button 
                 asChild
                 size="lg" 
@@ -106,12 +113,15 @@ const Home = () => {
                   Resume
                 </a>
               </Button>
-              <NavLink to="/contact">
-                <Button size="lg" variant="outline" className="group border-secondary/30 hover:bg-secondary/10 hover:border-secondary/50 transition-all hover:scale-105 shadow-lg">
-                  <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                  Contact Me
-                </Button>
-              </NavLink>
+              <Button 
+                onClick={() => scrollToSection("contact")}
+                size="lg" 
+                variant="outline" 
+                className="group border-secondary/30 hover:bg-secondary/10 hover:border-secondary/50 transition-all hover:scale-105 shadow-lg"
+              >
+                <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Contact Me
+              </Button>
             </div>
 
             {/* Enhanced Social Links */}
