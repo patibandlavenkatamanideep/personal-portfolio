@@ -5,6 +5,7 @@ import Experience from "./Experience";
 import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const Portfolio = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -38,8 +39,9 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth">
-      <section 
+    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth relative">
+      <ParallaxBackground />
+      <section
         id="home" 
         ref={(el) => (sectionsRef.current[0] = el)}
         className="snap-start snap-always min-h-screen pt-16 section-animate animate-zoom"
