@@ -8,44 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 15% 5%;
+    /* Professional color palette */
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
-    --card: 220 15% 8%;
+    --card: 222 47% 13%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 15% 8%;
+    --popover: 222 47% 13%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 217 91% 60%;
-    --primary-foreground: 220 15% 5%;
+    --primary-foreground: 222 47% 11%;
 
     --secondary: 186 100% 44%;
-    --secondary-foreground: 220 15% 5%;
+    --secondary-foreground: 222 47% 11%;
 
     --accent: 270 80% 65%;
-    --accent-foreground: 220 15% 5%;
+    --accent-foreground: 222 47% 11%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 217 10% 60%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 15%;
-    --input: 220 15% 15%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
+    /* Professional design tokens */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(270 80% 65%));
     --gradient-secondary: linear-gradient(135deg, hsl(186 100% 44%), hsl(217 91% 60%));
-    --glass-bg: hsla(220, 15%, 12%, 0.6);
-    --glass-border: hsla(217, 91%, 60%, 0.2);
-    --shadow-glow: 0 0 40px hsla(217, 91%, 60%, 0.3);
-    --shadow-elegant: 0 10px 30px -10px hsla(217, 91%, 60%, 0.4);
+    --gradient-hero: linear-gradient(to bottom right, hsl(217 91% 60% / 0.1), hsl(270 80% 65% / 0.05));
+    --glass-bg: hsla(222, 47%, 13%, 0.7);
+    --glass-border: hsla(217, 91%, 60%, 0.15);
+    --shadow-sm: 0 2px 8px hsla(222, 47%, 11%, 0.12);
+    --shadow-md: 0 4px 16px hsla(222, 47%, 11%, 0.16);
+    --shadow-lg: 0 8px 32px hsla(222, 47%, 11%, 0.20);
+    --shadow-glow: 0 0 40px hsla(217, 91%, 60%, 0.25);
+    --shadow-elegant: 0 10px 30px -10px hsla(217, 91%, 60%, 0.35);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
 
@@ -55,7 +61,29 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-optical-sizing: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+    line-height: 1.3;
   }
 }
 
