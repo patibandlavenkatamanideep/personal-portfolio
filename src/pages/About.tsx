@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Download, GraduationCap, Award, Sparkles, Target, Rocket } from "lucide-react";
-import profileImage from "@/assets/profile.jpg";
+import { Download, GraduationCap, Award, Target, Rocket, Code, TrendingUp, Cloud } from "lucide-react";
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const About = () => {
   const education = [
@@ -47,41 +53,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
-          {/* Enhanced Profile Section */}
-          <div className="space-y-6 animate-fade-in">
-            <div className="relative w-full max-w-sm mx-auto lg:mx-0 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-30 blur-2xl rounded-full animate-glow" />
-              <div className="absolute -inset-4 border-2 border-dashed border-primary/20 rounded-3xl animate-float" style={{ animationDelay: "0.5s" }} />
-              <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl group-hover:shadow-primary/30 transition-shadow">
-                <img
-                  src={profileImage}
-                  alt="Profile"
-                  className="relative w-full group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              {/* Floating achievement badges */}
-              <div className="absolute -top-4 -right-4 p-3 bg-gradient-to-r from-primary to-secondary rounded-2xl border border-primary/30 shadow-lg backdrop-blur-sm animate-float">
-                <Sparkles className="h-5 w-5 text-white" />
-              </div>
-            </div>
-            <div className="text-center lg:text-left">
-              <Button 
-                asChild
-                size="lg" 
-                className="group bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
-              >
-                <a 
-                  href="/Venkata_Manideep_Patibandla_Resume.pdf" 
-                  download="Venkata_Manideep_Patibandla_Resume.pdf"
-                >
-                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
-          </div>
-
+        <div className="max-w-4xl mx-auto mb-20">
           {/* Enhanced Bio Section */}
           <div className="space-y-6 animate-fade-in-delay">
             <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all">
@@ -102,27 +74,57 @@ const About = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="group relative p-5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
+            {/* Key Highlights Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+              <div className="group relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative text-4xl font-bold text-primary mb-1">15+</div>
+                <Code className="h-8 w-8 text-primary mb-3" />
+                <div className="relative text-3xl font-bold text-primary mb-1">15+</div>
                 <div className="relative text-sm text-muted-foreground font-medium">ML Projects</div>
               </div>
-              <div className="group relative p-5 rounded-xl bg-gradient-to-br from-secondary/10 to-secondary/5 border border-secondary/20 hover:border-secondary/40 transition-all hover:scale-105 hover:shadow-lg">
+              <div className="group relative p-6 rounded-xl bg-gradient-to-br from-secondary/10 to-secondary/5 border border-secondary/20 hover:border-secondary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative text-4xl font-bold text-secondary mb-1">3+</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Years Exp</div>
+                <TrendingUp className="h-8 w-8 text-secondary mb-3" />
+                <div className="relative text-3xl font-bold text-secondary mb-1">3+</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Years Experience</div>
               </div>
-              <div className="group relative p-5 rounded-xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all hover:scale-105 hover:shadow-lg">
+              <div className="group relative p-6 rounded-xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative text-4xl font-bold text-accent mb-1">AWS</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Cloud Expert</div>
+                <Cloud className="h-8 w-8 text-accent mb-3" />
+                <div className="relative text-3xl font-bold text-accent mb-1">AWS</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Cloud Certified</div>
               </div>
-              <div className="group relative p-5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
+              <div className="group relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative text-4xl font-bold text-primary mb-1">MLOps</div>
+                <Rocket className="h-8 w-8 text-primary mb-3" />
+                <div className="relative text-3xl font-bold text-primary mb-1">MLOps</div>
                 <div className="relative text-sm text-muted-foreground font-medium">Specialist</div>
               </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild
+                size="lg" 
+                className="group bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
+              >
+                <a 
+                  href="/Venkata_Manideep_Patibandla_Resume.pdf" 
+                  download="Venkata_Manideep_Patibandla_Resume.pdf"
+                >
+                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button 
+                onClick={() => scrollToSection("contact")}
+                size="lg" 
+                variant="outline"
+                className="group border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105"
+              >
+                Get In Touch
+              </Button>
             </div>
           </div>
         </div>
