@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, GraduationCap, Award, Target, Rocket, Code, TrendingUp, Cloud } from "lucide-react";
+import { Download, GraduationCap, Award, Target, Rocket, Code, TrendingUp, Cloud, BookOpen, Users, Trophy, GraduationCapIcon } from "lucide-react";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -27,6 +27,33 @@ const About = () => {
       institution: "GMR Institute of Technology",
       period: "2019–2023",
       icon: GraduationCap,
+    },
+  ];
+
+  const recognitions = [
+    {
+      title: "Research Publication",
+      description: "Published research paper on Deep Learning Approaches for Mood-Based Music Endorsement Systems",
+      organization: "Neuroquantology Journal",
+      icon: BookOpen,
+    },
+    {
+      title: "National Service Scheme Volunteer",
+      description: "Volunteered for NSS (National Service Scheme) for over 2 years",
+      organization: "Community Service",
+      icon: Users,
+    },
+    {
+      title: "Upsilon Pi Epsilon Recognition",
+      description: "Recognized by UPE for outstanding discipline and academic commitment",
+      organization: "Honor Society",
+      icon: Trophy,
+    },
+    {
+      title: "Teaching Assistant",
+      description: "Served as TA for Database and Data Structures, providing support to faculty and students",
+      organization: "4 months",
+      icon: GraduationCapIcon,
     },
   ];
 
@@ -165,6 +192,50 @@ const About = () => {
                           {edu.institution}
                         </p>
                         <p className="text-sm text-muted-foreground bg-muted/50 inline-block px-3 py-1 rounded-full">{edu.period}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Recognitions & Achievements Section */}
+        <div className="mt-32 animate-fade-in">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30">
+                <Trophy className="h-8 w-8 text-secondary" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold">Recognitions & Achievements</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {recognitions.map((recognition, index) => {
+              const Icon = recognition.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-secondary/50 transition-all hover:scale-105 hover:shadow-xl h-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 group-hover:from-secondary/30 group-hover:to-accent/30 transition-all border border-secondary/20">
+                          <Icon className="h-6 w-6 text-secondary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-bold mb-2 group-hover:text-secondary transition-colors">{recognition.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                            {recognition.description}
+                          </p>
+                          <p className="text-xs text-accent font-semibold bg-accent/10 inline-block px-3 py-1 rounded-full">
+                            {recognition.organization}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
