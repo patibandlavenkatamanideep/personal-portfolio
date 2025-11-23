@@ -4,14 +4,24 @@ import { ExternalLink, Github, Play, Sparkles, Award } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "Medical RAG Chatbot",
+      subtitle: "GPT-4 Powered Healthcare Assistant",
+      description:
+        "Intelligent medical chatbot leveraging Retrieval Augmented Generation with GPT-4 and Pinecone vector database. Features automated CI/CD pipelines on AWS for seamless deployment and scaling.",
+      tech: ["GPT-4", "Pinecone", "RAG", "AWS ECS", "LangChain", "Docker", "GitHub Actions"],
+      metrics: ["RAG Architecture", "Vector Search", "Automated CI/CD"],
+      color: "primary",
+      gradient: "from-primary to-secondary",
+    },
+    {
       title: "SureStep – AI-Based Fall Detection",
       subtitle: "YOLOv8 Real-time Detection System",
       description:
         "Real-time fall detection system using CNN and OpenCV with automated alert system. Deployed on AWS Lambda with Twilio SMS integration.",
       tech: ["YOLOv8", "OpenCV", "AWS Lambda", "Twilio", "Flask", "Docker"],
       metrics: ["94% Accuracy", "Real-time Processing", "Cloud Deployed"],
-      color: "primary",
-      gradient: "from-primary to-secondary",
+      color: "secondary",
+      gradient: "from-secondary to-accent",
     },
     {
       title: "AI-Assisted Medical Image Diagnosis",
@@ -20,8 +30,8 @@ const Projects = () => {
         "Advanced medical imaging diagnosis system with interpretability using Grad-CAM. Production-ready deployment with comprehensive model tracking.",
       tech: ["ResNet50", "Grad-CAM", "MLflow", "AWS SageMaker", "TensorFlow"],
       metrics: ["High Accuracy", "Model Interpretability", "Production Ready"],
-      color: "secondary",
-      gradient: "from-secondary to-accent",
+      color: "accent",
+      gradient: "from-accent to-primary",
     },
     {
       title: "Predictive Maintenance System",
@@ -30,8 +40,8 @@ const Projects = () => {
         "Time-series forecasting models for equipment failure prediction with automated training pipeline on AWS. Improved maintenance efficiency significantly.",
       tech: ["Time-series ML", "AWS Step Functions", "PySpark", "BigQuery"],
       metrics: ["30% Better Forecasting", "Automated Pipeline", "Cost Reduction"],
-      color: "accent",
-      gradient: "from-accent to-primary",
+      color: "primary",
+      gradient: "from-primary to-secondary",
     },
   ];
 
