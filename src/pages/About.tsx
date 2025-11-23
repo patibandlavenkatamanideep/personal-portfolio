@@ -201,40 +201,74 @@ const About = () => {
           </div>
         </div>
 
-        {/* Recognitions & Achievements Section */}
-        <div className="mt-32 animate-fade-in">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30">
-                <Trophy className="h-8 w-8 text-secondary" />
+        {/* Recognitions & Achievements Section - Optimized */}
+        <div className="mt-32 animate-fade-in relative">
+          {/* Background decoration */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-r from-secondary/5 via-accent/5 to-primary/5 rounded-full blur-3xl -z-10" />
+          
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 mb-4 group cursor-default">
+              <div className="relative p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30 group-hover:scale-110 transition-transform">
+                <Trophy className="h-8 w-8 text-secondary animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary/30 to-accent/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
-            <h2 className="text-3xl font-bold">Recognitions & Achievements</h2>
+            <h2 className="text-4xl font-bold mb-3">
+              Recognitions &{" "}
+              <span className="bg-gradient-to-r from-secondary via-accent to-primary bg-clip-text text-transparent">
+                Achievements
+              </span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Notable accomplishments and contributions to the field
+            </p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          
+          <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {recognitions.map((recognition, index) => {
               const Icon = recognition.icon;
               return (
                 <div
                   key={index}
                   className="group relative animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  style={{ 
+                    animationDelay: `${index * 0.15}s`,
+                    animationFillMode: 'backwards'
+                  }}
                 >
-                  <div className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-secondary/50 transition-all hover:scale-105 hover:shadow-xl h-full">
-                    <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {/* Glow effect on hover */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 via-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
+                  
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-md border border-border hover:border-secondary/50 transition-all hover:scale-[1.02] hover:shadow-2xl h-full overflow-hidden">
+                    {/* Animated background gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Decorative corner element */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
                     <div className="relative">
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 group-hover:from-secondary/30 group-hover:to-accent/30 transition-all border border-secondary/20">
-                          <Icon className="h-6 w-6 text-secondary" />
+                      <div className="flex items-start gap-5 mb-4">
+                        <div className="relative">
+                          <div className="p-4 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 group-hover:from-secondary/30 group-hover:to-accent/30 transition-all border border-secondary/20 group-hover:scale-110 group-hover:rotate-3 duration-300">
+                            <Icon className="h-7 w-7 text-secondary" />
+                          </div>
+                          {/* Icon glow effect */}
+                          <div className="absolute inset-0 bg-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
+                        
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold mb-2 group-hover:text-secondary transition-colors">{recognition.title}</h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                          <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors duration-300">
+                            {recognition.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                             {recognition.description}
                           </p>
-                          <p className="text-xs text-accent font-semibold bg-accent/10 inline-block px-3 py-1 rounded-full">
-                            {recognition.organization}
-                          </p>
+                          <div className="flex items-center gap-2">
+                            <div className="h-1 w-8 bg-gradient-to-r from-secondary to-accent rounded-full" />
+                            <p className="text-xs text-accent font-bold bg-gradient-to-r from-accent/20 to-secondary/20 px-4 py-2 rounded-full border border-accent/30 group-hover:border-accent/50 transition-colors">
+                              {recognition.organization}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
