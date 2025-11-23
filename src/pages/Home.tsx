@@ -1,14 +1,39 @@
 import { Button } from "@/components/ui/button";
-import { Download, Mail, Github, Linkedin, Sparkles, Code2, Database, CloudCog, Brain, TrendingUp } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Sparkles, Code2, Database, CloudCog, Brain, TrendingUp, Rocket } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Home = () => {
+  const { toast } = useToast();
+  const [launchingPlatform, setLaunchingPlatform] = useState<string | null>(null);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const handleSocialClick = (platform: string, url: string) => {
+    setLaunchingPlatform(platform);
+    
+    toast({
+      title: (
+        <div className="flex items-center gap-2">
+          <Rocket className="h-4 w-4 animate-bounce" />
+          <span>Launching {platform}...</span>
+        </div>
+      ) as any,
+      description: "Opening in new tab",
+    });
+
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener,noreferrer');
+      setLaunchingPlatform(null);
+    }, 800);
+  };
+
   const floatingSkills = [
     { icon: Brain, label: "Machine Learning", color: "primary", position: "top-20 right-[15%]", delay: "0s" },
     { icon: Code2, label: "Python", color: "secondary", position: "top-40 right-[8%]", delay: "0.5s" },
@@ -124,27 +149,35 @@ const Home = () => {
               </Button>
             </div>
 
-            {/* Enhanced Social Links */}
+            {/* Enhanced Social Links with Launch Effect */}
             <div className="flex items-center gap-4 pt-4">
               <span className="text-sm text-muted-foreground font-medium">Connect:</span>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative p-3 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-primary/10 transition-all border border-border hover:border-primary/50 hover:scale-110 shadow-lg"
+              <button
+                onClick={() => handleSocialClick('GitHub', 'https://github.com/patibandlavenkatamanideep')}
+                className="group relative p-3 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-primary/10 transition-all border border-border hover:border-primary/50 hover:scale-110 shadow-lg overflow-hidden"
               >
-                <Github className="h-5 w-5 relative z-10" />
+                {launchingPlatform === 'GitHub' && (
+                  <div className="absolute inset-0 animate-ping bg-primary/30 rounded-xl" />
+                )}
+                <Github className={`h-5 w-5 relative z-10 transition-transform ${launchingPlatform === 'GitHub' ? 'scale-0' : 'scale-100'}`} />
+                {launchingPlatform === 'GitHub' && (
+                  <Rocket className="absolute inset-0 m-auto h-5 w-5 text-primary animate-bounce z-20" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative p-3 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-secondary/10 transition-all border border-border hover:border-secondary/50 hover:scale-110 shadow-lg"
+              </button>
+              <button
+                onClick={() => handleSocialClick('LinkedIn', 'https://www.linkedin.com/in/manideep-analytics/')}
+                className="group relative p-3 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-secondary/10 transition-all border border-border hover:border-secondary/50 hover:scale-110 shadow-lg overflow-hidden"
               >
-                <Linkedin className="h-5 w-5 relative z-10" />
+                {launchingPlatform === 'LinkedIn' && (
+                  <div className="absolute inset-0 animate-ping bg-secondary/30 rounded-xl" />
+                )}
+                <Linkedin className={`h-5 w-5 relative z-10 transition-transform ${launchingPlatform === 'LinkedIn' ? 'scale-0' : 'scale-100'}`} />
+                {launchingPlatform === 'LinkedIn' && (
+                  <Rocket className="absolute inset-0 m-auto h-5 w-5 text-secondary animate-bounce z-20" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </button>
             </div>
           </div>
 

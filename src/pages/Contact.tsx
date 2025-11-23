@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, MapPin, Send, MessageSquare, Sparkles } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Send, MessageSquare, Sparkles, Rocket } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
@@ -14,6 +14,26 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [launchingPlatform, setLaunchingPlatform] = useState<string | null>(null);
+
+  const handleSocialClick = (platform: string, url: string) => {
+    setLaunchingPlatform(platform);
+    
+    toast({
+      title: (
+        <div className="flex items-center gap-2">
+          <Rocket className="h-4 w-4 animate-bounce" />
+          <span>Launching {platform}...</span>
+        </div>
+      ) as any,
+      description: "Opening in new tab",
+    });
+
+    setTimeout(() => {
+      window.open(url, '_blank', 'noopener,noreferrer');
+      setLaunchingPlatform(null);
+    }, 800);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -179,22 +199,31 @@ const Contact = () => {
                 <div className="space-y-5">
                   {contactInfo.map((info, index) => {
                     const Icon = info.icon;
+                    const isLaunching = info.href && (
+                      (info.label === 'LinkedIn' && launchingPlatform === 'LinkedIn') ||
+                      (info.label === 'GitHub' && launchingPlatform === 'GitHub')
+                    );
+                    
                     return (
-                      <div key={index} className="group flex items-start gap-4 p-4 rounded-xl hover:bg-muted/30 transition-all">
-                        <div className={`p-3 rounded-xl bg-gradient-to-br from-${info.color}/20 to-${info.color}/10 group-hover:from-${info.color}/30 group-hover:to-${info.color}/20 transition-all flex-shrink-0 border border-${info.color}/20`}>
-                          <Icon className={`h-5 w-5 text-${info.color}`} />
+                      <div key={index} className="group flex items-start gap-4 p-4 rounded-xl hover:bg-muted/30 transition-all relative overflow-hidden">
+                        {isLaunching && (
+                          <div className="absolute inset-0 animate-ping bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl" />
+                        )}
+                        <div className={`relative p-3 rounded-xl bg-gradient-to-br from-${info.color}/20 to-${info.color}/10 group-hover:from-${info.color}/30 group-hover:to-${info.color}/20 transition-all flex-shrink-0 border border-${info.color}/20`}>
+                          <Icon className={`h-5 w-5 text-${info.color} transition-transform ${isLaunching ? 'scale-0' : 'scale-100'}`} />
+                          {isLaunching && (
+                            <Rocket className="absolute inset-0 m-auto h-5 w-5 text-primary animate-bounce" />
+                          )}
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 relative">
                           <p className="text-sm text-muted-foreground font-medium mb-1">{info.label}</p>
                           {info.href ? (
-                            <a
-                              href={info.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="font-semibold hover:text-primary transition-colors text-base"
+                            <button
+                              onClick={() => handleSocialClick(info.label, info.href!)}
+                              className="font-semibold hover:text-primary transition-colors text-base text-left"
                             >
                               {info.value}
-                            </a>
+                            </button>
                           ) : (
                             <p className="font-semibold text-base">{info.value}</p>
                           )}
