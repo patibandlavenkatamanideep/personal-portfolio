@@ -181,26 +181,54 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Content - Enhanced Profile Image */}
+          {/* Right Content - Enhanced Profile Image with Organic Blob Shape */}
           <div className="relative animate-fade-in-delay lg:ml-auto">
             <div className="relative w-full max-w-md mx-auto">
               {/* Enhanced glow effect with multiple layers */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-30 blur-3xl rounded-full animate-glow" />
               <div className="absolute inset-0 bg-gradient-to-tr from-accent via-primary to-secondary opacity-20 blur-2xl rounded-full animate-float" style={{ animationDelay: "0.5s" }} />
               
-              {/* Decorative ring */}
-              <div className="absolute inset-0 -m-4">
-                <div className="w-full h-full rounded-3xl border-2 border-dashed border-primary/20 animate-float" style={{ animationDelay: "1s" }} />
-              </div>
+              {/* Decorative floating orbs */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-full blur-xl animate-float" />
+              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-secondary/20 rounded-full blur-xl animate-float" style={{ animationDelay: "1s" }} />
               
-              {/* Image container with enhanced styling */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-primary/30 shadow-2xl hover:shadow-primary/20 transition-shadow duration-500 group">
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                <img
-                  src={profileImage}
-                  alt="Venkata Manideep Patibandla"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              {/* Image container with organic blob shape */}
+              <div className="relative group">
+                {/* SVG Blob clip-path */}
+                <svg className="absolute w-0 h-0">
+                  <defs>
+                    <clipPath id="blobShape" clipPathUnits="objectBoundingBox">
+                      <path d="M0.45,0.05 C0.65,0.02,0.85,0.15,0.92,0.35 C0.98,0.52,0.95,0.72,0.85,0.85 C0.72,0.98,0.52,1.02,0.35,0.95 C0.18,0.88,0.05,0.72,0.05,0.55 C0.05,0.35,0.22,0.08,0.45,0.05 Z">
+                        <animate
+                          attributeName="d"
+                          dur="8s"
+                          repeatCount="indefinite"
+                          values="
+                            M0.45,0.05 C0.65,0.02,0.85,0.15,0.92,0.35 C0.98,0.52,0.95,0.72,0.85,0.85 C0.72,0.98,0.52,1.02,0.35,0.95 C0.18,0.88,0.05,0.72,0.05,0.55 C0.05,0.35,0.22,0.08,0.45,0.05 Z;
+                            M0.55,0.08 C0.72,0.05,0.92,0.18,0.95,0.38 C0.98,0.58,0.88,0.78,0.72,0.88 C0.58,0.95,0.38,0.98,0.22,0.92 C0.08,0.85,0.02,0.68,0.05,0.48 C0.08,0.28,0.35,0.12,0.55,0.08 Z;
+                            M0.42,0.08 C0.62,0.05,0.88,0.12,0.95,0.32 C1.02,0.52,0.98,0.75,0.82,0.88 C0.68,0.98,0.45,1.02,0.28,0.95 C0.12,0.88,0.02,0.68,0.05,0.48 C0.08,0.25,0.22,0.12,0.42,0.08 Z;
+                            M0.45,0.05 C0.65,0.02,0.85,0.15,0.92,0.35 C0.98,0.52,0.95,0.72,0.85,0.85 C0.72,0.98,0.52,1.02,0.35,0.95 C0.18,0.88,0.05,0.72,0.05,0.55 C0.05,0.35,0.22,0.08,0.45,0.05 Z
+                          "
+                        />
+                      </path>
+                    </clipPath>
+                  </defs>
+                </svg>
+                
+                {/* Outer border blob */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent p-1" style={{ clipPath: 'url(#blobShape)' }}>
+                  <div className="w-full h-full bg-background" style={{ clipPath: 'url(#blobShape)' }} />
+                </div>
+                
+                {/* Main image with blob shape */}
+                <div className="relative overflow-hidden shadow-2xl hover:shadow-primary/20 transition-shadow duration-500" style={{ clipPath: 'url(#blobShape)' }}>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                  <img
+                    src={profileImage}
+                    alt="Venkata Manideep Patibandla"
+                    className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
               </div>
 
               {/* Enhanced floating labels with icons */}
