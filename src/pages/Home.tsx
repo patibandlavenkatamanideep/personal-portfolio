@@ -259,11 +259,11 @@ const Home = () => {
                 </div>
                 
                 {/* Main image with blob shape */}
-                <div className="relative overflow-hidden shadow-2xl hover:shadow-primary/20 transition-shadow duration-500" style={{ clipPath: 'url(#blobShape)' }}>
+                <div className="relative overflow-hidden shadow-2xl transition-shadow duration-500" style={{ clipPath: 'url(#blobShape)' }}>
                   <img
                     src={profileImage}
                     alt="Venkata Manideep Patibandla"
-                    className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-auto object-cover transition-transform duration-700"
                   />
                 </div>
               </div>
