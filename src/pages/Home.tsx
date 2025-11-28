@@ -2,11 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Download, Mail, Github, Linkedin, Sparkles, Code2, Database, CloudCog, Brain, TrendingUp, Rocket } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Home = () => {
   const { toast } = useToast();
   const [launchingPlatform, setLaunchingPlatform] = useState<string | null>(null);
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -32,6 +34,26 @@ const Home = () => {
       window.open(url, '_blank', 'noopener,noreferrer');
       setLaunchingPlatform(null);
     }, 800);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imageContainerRef.current) return;
+    
+    const rect = imageContainerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -15; // Max 15 degrees
+    const rotateY = ((x - centerX) / centerX) * 15;
+    
+    setTilt({ rotateX, rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ rotateX: 0, rotateY: 0 });
   };
 
   const floatingSkills = [
@@ -183,7 +205,16 @@ const Home = () => {
 
           {/* Right Content - Enhanced Profile Image with Organic Blob Shape */}
           <div className="relative animate-fade-in-delay lg:ml-auto">
-            <div className="relative w-full max-w-md mx-auto">
+            <div 
+              ref={imageContainerRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="relative w-full max-w-md mx-auto"
+              style={{ 
+                perspective: '1000px',
+                transformStyle: 'preserve-3d'
+              }}
+            >
               {/* Enhanced glow effect with multiple layers */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-30 blur-3xl rounded-full animate-glow" />
               <div className="absolute inset-0 bg-gradient-to-tr from-accent via-primary to-secondary opacity-20 blur-2xl rounded-full animate-float" style={{ animationDelay: "0.5s" }} />
@@ -193,7 +224,14 @@ const Home = () => {
               <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-secondary/20 rounded-full blur-xl animate-float" style={{ animationDelay: "1s" }} />
               
               {/* Image container with organic blob shape */}
-              <div className="relative group">
+              <div 
+                className="relative group"
+                style={{
+                  transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+                  transition: 'transform 0.1s ease-out',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
                 {/* SVG Blob clip-path */}
                 <svg className="absolute w-0 h-0">
                   <defs>
