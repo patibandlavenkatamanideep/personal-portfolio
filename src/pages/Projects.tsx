@@ -22,6 +22,7 @@ const Projects = () => {
       metrics: ["94% Accuracy", "Real-time Processing", "Cloud Deployed"],
       color: "secondary",
       gradient: "from-secondary to-accent",
+      githubUrl: "https://github.com/patibandlavenkatamanideep/Sure-Step-Detection-Using-Yolov8",
     },
     {
       title: "AI-Assisted Medical Image Diagnosis",
@@ -139,10 +140,17 @@ const Projects = () => {
                         Demo
                       </span>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/10 hover:scale-105 transition-all shadow-lg">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </Button>
+                    {project.githubUrl && (
+                      <Button 
+                        size="lg" 
+                        variant="outline" 
+                        className="border-primary/30 hover:bg-primary/10 hover:scale-105 transition-all shadow-lg"
+                        onClick={() => window.open(project.githubUrl, '_blank')}
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </Button>
+                    )}
                     <Button size="lg" variant="outline" className="border-secondary/30 hover:bg-secondary/10 hover:scale-105 transition-all shadow-lg">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Details
