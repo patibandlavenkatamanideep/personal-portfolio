@@ -132,8 +132,8 @@ const Home = () => {
                 className="group border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105 shadow-lg"
               >
                 <a 
-                  href="/Venkata_Manideep_Patibandla_Resume.pdf" 
-                  download="Venkata_Manideep_Patibandla_Resume.pdf"
+                  href="/Venkata_Manideep_ML_Engineer.pdf" 
+                  download="Venkata_Manideep_ML_Engineer.pdf"
                 >
                   <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                   Resume
@@ -182,14 +182,46 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Content - Profile Image */}
+          {/* Right Content - Profile Image with Cloud Shape */}
           <div className="relative animate-fade-in-delay lg:ml-auto">
-            <div className="relative w-full max-w-md mx-auto">
-              <img
-                src={profileImage}
-                alt="Venkata Manideep Patibandla"
-                className="w-full h-auto object-cover rounded-2xl shadow-lg"
-              />
+            <div className="relative w-full max-w-md mx-auto animate-cloud-float">
+              {/* Cloud shape container */}
+              <div className="relative">
+                {/* Cloud blob SVG mask */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" style={{ visibility: 'hidden', position: 'absolute' }}>
+                  <defs>
+                    <clipPath id="cloudClip" clipPathUnits="objectBoundingBox">
+                      <path d="M0.85,0.65 C0.95,0.55 0.95,0.4 0.85,0.3 C0.9,0.15 0.75,0.05 0.6,0.1 C0.5,0.02 0.35,0.02 0.25,0.1 C0.1,0.05 0,0.2 0.1,0.35 C0.02,0.45 0.02,0.6 0.1,0.7 C0.05,0.85 0.2,0.98 0.35,0.9 C0.45,0.98 0.6,0.98 0.7,0.9 C0.85,0.98 1,0.8 0.85,0.65 Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                
+                <div 
+                  className="relative overflow-hidden shadow-2xl"
+                  style={{ 
+                    clipPath: "path('M340 260 C380 220 380 160 340 120 C360 60 300 20 240 40 C200 8 140 8 100 40 C40 20 0 80 40 140 C8 180 8 240 40 280 C20 340 80 392 140 360 C180 392 240 392 280 360 C340 392 400 320 340 260 Z')",
+                    width: '400px',
+                    height: '400px'
+                  }}
+                >
+                  <img
+                    src={profileImage}
+                    alt="Venkata Manideep Patibandla"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Soft glow behind cloud */}
+                <div 
+                  className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-r from-primary via-secondary to-accent"
+                  style={{
+                    clipPath: "path('M340 260 C380 220 380 160 340 120 C360 60 300 20 240 40 C200 8 140 8 100 40 C40 20 0 80 40 140 C8 180 8 240 40 280 C20 340 80 392 140 360 C180 392 240 392 280 360 C340 392 400 320 340 260 Z')",
+                    width: '400px',
+                    height: '400px',
+                    transform: 'scale(1.1)'
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
