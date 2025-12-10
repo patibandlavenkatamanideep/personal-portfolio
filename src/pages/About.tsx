@@ -11,21 +11,17 @@ const scrollToSection = (sectionId: string) => {
 const About = () => {
   const education = [
     {
-      degree: "Data Science and ML Specialization",
-      institution: "Scaler",
-      period: "2024–2025",
-      icon: Award,
-    },
-    {
-      degree: "Master's in Computer Science & IT",
-      institution: "Sacred Heart University (SHU)",
-      period: "2024–2025",
+      degree: "Master's Degree in Computer and Information Science",
+      institution: "Sacred Heart University",
+      period: "GPA: 3.8",
+      highlight: "Minor in Computer and Information Science",
       icon: GraduationCap,
     },
     {
-      degree: "Bachelor's in Information Technology",
+      degree: "Bachelor of Technology in Information Technology",
       institution: "GMR Institute of Technology",
-      period: "2019–2023",
+      period: "GPA: 3.6",
+      highlight: "Minor in Information Technology",
       icon: GraduationCap,
     },
   ];
@@ -45,14 +41,14 @@ const About = () => {
     },
     {
       title: "Upsilon Pi Epsilon Recognition",
-      description: "Recognized by UPE for outstanding discipline and academic commitment",
+      description: "Recognized by UPE for outstanding discipline and academic excellence",
       organization: "Honor Society",
       icon: Trophy,
     },
     {
       title: "Teaching Assistant",
       description: "Served as TA for Database and Data Structures, providing support to faculty and students",
-      organization: "4 months",
+      organization: "Sacred Heart University",
       icon: GraduationCapIcon,
     },
   ];
@@ -93,10 +89,10 @@ const About = () => {
                   <h2 className="text-2xl font-bold">Professional Summary</h2>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Master's in Computer Science with <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">3+ years of experience</span> in Data Analysis and Machine Learning. Skilled in Python, SQL, ML model development, deployment pipelines, AWS cloud, and data visualization.
+                  Master's in Computer Science with <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">3+ years of experience</span> in Data Analysis and Machine Learning. Skilled in Python, SQL, ML model development, deployment using Flask/Streamlit, and AWS cloud services.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Passionate about building <span className="text-foreground font-semibold bg-secondary/10 px-2 py-0.5 rounded">scalable, production-ready ML systems</span> and delivering real-world impact through data-driven solutions. Experienced in end-to-end ML workflows from data preprocessing to model deployment and monitoring.
+                  Experienced in <span className="text-foreground font-semibold bg-secondary/10 px-2 py-0.5 rounded">CI/CD workflows, data pipelines, and Tableau dashboards</span>. Passionate about delivering scalable, data-driven solutions with production-ready ML systems.
                 </p>
               </div>
             </div>
@@ -119,7 +115,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Cloud className="h-8 w-8 text-accent mb-3" />
                 <div className="relative text-3xl font-bold text-accent mb-1">AWS</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Cloud Certified</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Cloud Expert</div>
               </div>
               <div className="group relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -137,8 +133,8 @@ const About = () => {
                 className="group bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <a 
-                  href="/Venkata_Manideep_Patibandla_Resume.pdf" 
-                  download="Venkata_Manideep_Patibandla_Resume.pdf"
+                  href="/Venkata_Manideep_ML_Engineer.pdf" 
+                  download="Venkata_Manideep_ML_Engineer.pdf"
                 >
                   <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                   Download Resume
@@ -191,6 +187,7 @@ const About = () => {
                         <p className="text-secondary font-semibold mb-1 flex items-center gap-2">
                           {edu.institution}
                         </p>
+                        <p className="text-sm text-muted-foreground mb-1">{edu.highlight}</p>
                         <p className="text-sm text-muted-foreground bg-muted/50 inline-block px-3 py-1 rounded-full">{edu.period}</p>
                       </div>
                     </div>
@@ -201,16 +198,14 @@ const About = () => {
           </div>
         </div>
 
-        {/* Recognitions & Achievements Section - Optimized */}
+        {/* Recognitions & Achievements Section */}
         <div className="mt-32 animate-fade-in relative">
-          {/* Background decoration */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-r from-secondary/5 via-accent/5 to-primary/5 rounded-full blur-3xl -z-10" />
           
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-4 group cursor-default">
               <div className="relative p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30 group-hover:scale-110 transition-transform">
                 <Trophy className="h-8 w-8 text-secondary animate-pulse" />
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary/30 to-accent/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
             <h2 className="text-4xl font-bold mb-3">
@@ -231,19 +226,12 @@ const About = () => {
                 <div
                   key={index}
                   className="group relative animate-fade-in"
-                  style={{ 
-                    animationDelay: `${index * 0.15}s`,
-                    animationFillMode: 'backwards'
-                  }}
+                  style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  {/* Glow effect on hover */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 via-accent/20 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
                   
                   <div className="relative p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-md border border-border hover:border-secondary/50 transition-all hover:scale-[1.02] hover:shadow-2xl h-full overflow-hidden">
-                    {/* Animated background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Decorative corner element */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
                     
                     <div className="relative">
@@ -252,7 +240,6 @@ const About = () => {
                           <div className="p-4 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 group-hover:from-secondary/30 group-hover:to-accent/30 transition-all border border-secondary/20 group-hover:scale-110 group-hover:rotate-3 duration-300">
                             <Icon className="h-7 w-7 text-secondary" />
                           </div>
-                          {/* Icon glow effect */}
                           <div className="absolute inset-0 bg-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
                         
@@ -265,7 +252,7 @@ const About = () => {
                           </p>
                           <div className="flex items-center gap-2">
                             <div className="h-1 w-8 bg-gradient-to-r from-secondary to-accent rounded-full" />
-                            <p className="text-xs text-accent font-bold bg-gradient-to-r from-accent/20 to-secondary/20 px-4 py-2 rounded-full border border-accent/30 group-hover:border-accent/50 transition-colors">
+                            <p className="text-xs text-accent font-bold bg-gradient-to-r from-accent/20 to-secondary/20 px-4 py-2 rounded-full border border-accent/30">
                               {recognition.organization}
                             </p>
                           </div>
