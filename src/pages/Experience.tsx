@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2, Zap, Award, Building2 } from "lucide-react";
+import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2, Zap, Building2 } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
@@ -9,12 +9,12 @@ const Experience = () => {
       period: "Aug 2025 – Present",
       type: "Full-time",
       responsibilities: [
-        "Engineered automated ETL pipelines using Python and SQL on GCP BigQuery processing 50K+ client records daily",
-        "Implemented data quality checks and validation frameworks that reduced data inconsistencies by 85%",
-        "Integrated multiple data sources (CRM, transactions, market data) to create unified analytics datasets",
-        "Supporting sales and client development initiatives across 200+ enterprise accounts",
+        "Engineered ML infrastructure using PyTorch and Python (Scikit-learn, XGBoost) achieving 92% accuracy across 50,000+ records",
+        "Implementing production-ready systems with RESTful APIs and CI/CD that reduced inference latency by 35%",
+        "Designed GPU-optimized training pipelines and feature engineering workflows that reduced model development time by 40%",
+        "Automated validation through parallel processing for enterprise-scale deployments",
       ],
-      highlights: ["50K+ Records/Day", "85% Error Reduction", "200+ Accounts"],
+      highlights: ["92% Accuracy", "35% Latency ↓", "40% Dev Time ↓"],
       color: "primary",
     },
     {
@@ -24,12 +24,12 @@ const Experience = () => {
       period: "April 2021 – January 2024",
       type: "Full-time",
       responsibilities: [
-        "Developed interactive Tableau dashboards and Streamlit applications delivering real-time client analytics",
-        "Translated complex datasets into actionable insights that identified $100K+ revenue opportunities",
-        "Improved client engagement strategies by 40% through automated reporting systems",
-        "Reduced manual analysis time from 10 hours to 30 minutes weekly",
+        "Architected LLM-powered automation platform leveraging GPT-4 APIs with retrieval-augmented generation (RAG)",
+        "Reduced manual processing by 90% through prompt engineering, semantic search, and vector embeddings across 100K+ operations",
+        "Implemented distributed workflow systems with monitoring and caching strategies",
+        "Improved throughput by 60% through cross-functional collaboration with product and engineering teams",
       ],
-      highlights: ["$100K+ Revenue", "40% Engagement ↑", "10hrs → 30min"],
+      highlights: ["90% Automation", "60% Throughput ↑", "100K+ Operations"],
       color: "secondary",
     },
     {
@@ -39,12 +39,12 @@ const Experience = () => {
       period: "Sep 2020 – Feb 2021",
       type: "Internship",
       responsibilities: [
-        "Built predictive analytics models using Python (pandas, scikit-learn) and R to forecast client trading behavior",
-        "Identified cross-sell opportunities across 10K+ client segments leveraging cloud infrastructure (GCP)",
-        "Achieved 88% prediction accuracy enabling sales team to prioritize high-value prospects",
-        "Increased conversion rates by 25% while collaborating with stakeholders to define KPIs",
+        "Built production PyTorch CNN pipeline for document classification processing 10K+ documents with 91% accuracy",
+        "Implemented embedding-based similarity search and CI/CD automation",
+        "Reduced feature engineering time by 85% through automated pipelines",
+        "Deployed scalable inference systems with comprehensive monitoring and performance optimization",
       ],
-      highlights: ["88% Accuracy", "25% Conversion ↑", "10K+ Clients"],
+      highlights: ["91% Accuracy", "85% Feature Eng ↓", "10K+ Documents"],
       color: "accent",
     },
   ];
@@ -169,8 +169,8 @@ const Experience = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           {[
             { label: "Years Experience", value: "3+", icon: Calendar },
-            { label: "Revenue Impact", value: "$100K+", icon: TrendingUp },
-            { label: "Efficiency Gains", value: "85%", icon: Zap },
+            { label: "ML Accuracy", value: "92%", icon: TrendingUp },
+            { label: "Processing Reduction", value: "90%", icon: Zap },
             { label: "Companies", value: "3", icon: Building2 },
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-105 text-center group">
