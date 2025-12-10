@@ -1,50 +1,60 @@
-import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2, Zap, Award, Building2 } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
     {
-      company: "One Community Global",
-      location: "New Haven, CT",
-      role: "Data Analyst Intern",
-      period: "July 2025 – September 2025",
+      company: "Infosoft Solutions",
+      location: "West Windsor, NJ",
+      role: "Data Analyst",
+      period: "Aug 2025 – Present",
+      type: "Full-time",
       responsibilities: [
-        "Built SQL pipelines in Snowflake for ML-ready datasets",
-        "Automated Tableau dashboards for ML insights",
-        "Integrated feature engineering & production workflow data prep",
+        "Engineered automated ETL pipelines using Python and SQL on GCP BigQuery processing 50K+ client records daily",
+        "Implemented data quality checks and validation frameworks that reduced data inconsistencies by 85%",
+        "Integrated multiple data sources (CRM, transactions, market data) to create unified analytics datasets",
+        "Supporting sales and client development initiatives across 200+ enterprise accounts",
       ],
+      highlights: ["50K+ Records/Day", "85% Error Reduction", "200+ Accounts"],
       color: "primary",
     },
     {
       company: "Happiest Minds Technology",
       location: "Bengaluru, India",
       role: "Data Analyst",
-      period: "July 2021 – December 2023",
+      period: "April 2021 – January 2024",
+      type: "Full-time",
       responsibilities: [
-        "Automated CI/CD-driven data pipelines",
-        "Built executive dashboards (25% engagement increase)",
-        "Conducted A/B testing & statistical analysis for operational optimization",
+        "Developed interactive Tableau dashboards and Streamlit applications delivering real-time client analytics",
+        "Translated complex datasets into actionable insights that identified $100K+ revenue opportunities",
+        "Improved client engagement strategies by 40% through automated reporting systems",
+        "Reduced manual analysis time from 10 hours to 30 minutes weekly",
       ],
+      highlights: ["$100K+ Revenue", "40% Engagement ↑", "10hrs → 30min"],
       color: "secondary",
     },
     {
       company: "ION Technology Solutions",
       location: "Vijayawada, India",
       role: "Data Analyst Intern",
-      period: "January 2021 – June 2021",
+      period: "Sep 2020 – Feb 2021",
+      type: "Internship",
       responsibilities: [
-        "Developed SQL queries with CTEs and window functions",
-        "Performed exploratory analysis using Python",
-        "Improved workflow efficiency by 20%",
+        "Built predictive analytics models using Python (pandas, scikit-learn) and R to forecast client trading behavior",
+        "Identified cross-sell opportunities across 10K+ client segments leveraging cloud infrastructure (GCP)",
+        "Achieved 88% prediction accuracy enabling sales team to prioritize high-value prospects",
+        "Increased conversion rates by 25% while collaborating with stakeholders to define KPIs",
       ],
+      highlights: ["88% Accuracy", "25% Conversion ↑", "10K+ Clients"],
       color: "accent",
     },
   ];
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background elements */}
+      {/* Animated background elements */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-secondary/10 to-accent/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-40 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl" />
       
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
@@ -67,45 +77,71 @@ const Experience = () => {
         </div>
 
         <div className="relative">
-          {/* Enhanced Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent hidden md:block rounded-full opacity-30" />
+          {/* Enhanced Timeline line with gradient animation */}
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent hidden md:block rounded-full opacity-40" />
+          <div className="absolute left-8 top-0 h-24 w-1 bg-gradient-to-b from-primary to-transparent hidden md:block rounded-full animate-pulse" />
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="relative animate-fade-in"
+                className="relative animate-fade-in group"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Enhanced Timeline dot with pulse */}
-                <div className="absolute left-6 hidden md:block">
-                  <div className={`w-7 h-7 rounded-full bg-${exp.color} border-4 border-background shadow-lg group-hover:scale-125 transition-transform`} />
+                <div className="absolute left-6 hidden md:block z-10">
+                  <div className={`w-7 h-7 rounded-full bg-${exp.color} border-4 border-background shadow-lg group-hover:scale-125 transition-transform duration-300`} />
                   <div className={`absolute inset-0 w-7 h-7 rounded-full bg-${exp.color} animate-ping opacity-20`} />
                 </div>
 
-                <div className="md:ml-24 group relative p-8 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-[1.01] hover:shadow-2xl">
-                  {/* Gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-r from-${exp.color}/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <div className="md:ml-24 relative p-8 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl overflow-hidden">
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-r from-${exp.color}/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  {/* Decorative corner accent */}
+                  <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-${exp.color}/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity`} />
                   
                   <div className="relative">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
                       <div className="flex-1">
-                        <h3 className="text-2xl sm:text-3xl font-bold mb-3 group-hover:text-primary transition-colors">
-                          {exp.role}
-                        </h3>
-                        <div className="flex flex-wrap items-center gap-4 mb-2">
-                          <div className="flex items-center gap-2 text-secondary font-semibold">
-                            <div className="p-2 rounded-lg bg-secondary/10 border border-secondary/20">
-                              <Briefcase className="h-4 w-4" />
-                            </div>
-                            {exp.company}
+                        {/* Role title with icon */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className={`p-3 rounded-xl bg-gradient-to-br from-${exp.color}/20 to-${exp.color}/10 border border-${exp.color}/30 shadow-lg`}>
+                            <Briefcase className={`h-5 w-5 text-${exp.color}`} />
                           </div>
-                          <div className="flex items-center gap-2 text-muted-foreground">
-                            <MapPin className="h-4 w-4" />
-                            {exp.location}
+                          <div>
+                            <h3 className="text-2xl sm:text-3xl font-bold group-hover:text-primary transition-colors">
+                              {exp.role}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <Building2 className="h-4 w-4 text-secondary" />
+                              <span className="text-secondary font-semibold">{exp.company}</span>
+                              <span className={`px-2 py-0.5 rounded-full text-xs font-medium bg-${exp.color}/20 text-${exp.color} border border-${exp.color}/30`}>
+                                {exp.type}
+                              </span>
+                            </div>
                           </div>
                         </div>
+                        
+                        <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                          <MapPin className="h-4 w-4" />
+                          <span>{exp.location}</span>
+                        </div>
+
+                        {/* Key Highlights Pills */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {exp.highlights.map((highlight, idx) => (
+                            <div
+                              key={idx}
+                              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-${exp.color}/20 to-${exp.color}/10 border border-${exp.color}/30 text-sm font-semibold shadow-sm`}
+                            >
+                              <Zap className={`h-3.5 w-3.5 text-${exp.color}`} />
+                              {highlight}
+                            </div>
+                          ))}
+                        </div>
                       </div>
+                      
                       <div className={`flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-${exp.color}/20 to-${exp.color}/10 border border-${exp.color}/30 text-sm font-semibold whitespace-nowrap backdrop-blur-sm shadow-lg`}>
                         <Calendar className="h-4 w-4" />
                         {exp.period}
@@ -115,7 +151,7 @@ const Experience = () => {
                     <ul className="space-y-4">
                       {exp.responsibilities.map((resp, idx) => (
                         <li key={idx} className="flex items-start gap-4 group/item">
-                          <div className={`mt-1 p-1.5 rounded-lg bg-${exp.color}/20 border border-${exp.color}/30 flex-shrink-0`}>
+                          <div className={`mt-1 p-1.5 rounded-lg bg-${exp.color}/20 border border-${exp.color}/30 flex-shrink-0 group-hover/item:scale-110 transition-transform`}>
                             <CheckCircle2 className={`h-4 w-4 text-${exp.color}`} />
                           </div>
                           <span className="text-muted-foreground leading-relaxed group-hover/item:text-foreground transition-colors">{resp}</span>
@@ -127,6 +163,22 @@ const Experience = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Summary Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          {[
+            { label: "Years Experience", value: "3+", icon: Calendar },
+            { label: "Revenue Impact", value: "$100K+", icon: TrendingUp },
+            { label: "Efficiency Gains", value: "85%", icon: Zap },
+            { label: "Companies", value: "3", icon: Building2 },
+          ].map((stat, idx) => (
+            <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-105 text-center group">
+              <stat.icon className="h-6 w-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
