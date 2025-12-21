@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Download, Mail, Github, Linkedin, Sparkles, Code2, Database, CloudCog, Brain, TrendingUp, Rocket } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 import { useToast } from "@/hooks/use-toast";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import TypeWriter from "@/components/TypeWriter";
 
 const Home = () => {
   const { toast } = useToast();
@@ -102,7 +103,10 @@ const Home = () => {
                 <div className="flex items-center gap-3 pt-2">
                   <div className="h-1 w-12 bg-gradient-to-r from-primary to-secondary rounded-full" />
                   <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-muted-foreground">
-                    Data Scientist & ML Engineer
+                    <TypeWriter 
+                      words={["Data Scientist", "ML Engineer", "MLOps Specialist", "Cloud Architect"]} 
+                      className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                    />
                   </h2>
                 </div>
               </div>
