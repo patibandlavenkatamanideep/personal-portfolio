@@ -182,45 +182,45 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Content - Profile Image with Cloud Shape */}
+          {/* Right Content - Profile Image with Labels */}
           <div className="relative animate-fade-in-delay lg:ml-auto">
-            <div className="relative w-full max-w-md mx-auto animate-cloud-float">
-              {/* Cloud shape container */}
+            <div className="relative w-full max-w-md mx-auto">
+              {/* Main profile container */}
               <div className="relative">
-                {/* Cloud blob SVG mask */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" style={{ visibility: 'hidden', position: 'absolute' }}>
-                  <defs>
-                    <clipPath id="cloudClip" clipPathUnits="objectBoundingBox">
-                      <path d="M0.85,0.65 C0.95,0.55 0.95,0.4 0.85,0.3 C0.9,0.15 0.75,0.05 0.6,0.1 C0.5,0.02 0.35,0.02 0.25,0.1 C0.1,0.05 0,0.2 0.1,0.35 C0.02,0.45 0.02,0.6 0.1,0.7 C0.05,0.85 0.2,0.98 0.35,0.9 C0.45,0.98 0.6,0.98 0.7,0.9 C0.85,0.98 1,0.8 0.85,0.65 Z" />
-                    </clipPath>
-                  </defs>
-                </svg>
-                
-                <div 
-                  className="relative overflow-hidden shadow-2xl"
-                  style={{ 
-                    clipPath: "path('M340 260 C380 220 380 160 340 120 C360 60 300 20 240 40 C200 8 140 8 100 40 C40 20 0 80 40 140 C8 180 8 240 40 280 C20 340 80 392 140 360 C180 392 240 392 280 360 C340 392 400 320 340 260 Z')",
-                    width: '400px',
-                    height: '400px'
-                  }}
-                >
-                  <img
-                    src={profileImage}
-                    alt="Venkata Manideep Patibandla"
-                    className="w-full h-full object-cover"
-                  />
+                {/* Gradient border wrapper */}
+                <div className="relative p-1 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent shadow-2xl">
+                  <div className="rounded-xl overflow-hidden bg-background">
+                    <img
+                      src={profileImage}
+                      alt="Venkata Manideep Patibandla"
+                      className="w-full aspect-[4/5] object-cover object-top"
+                    />
+                  </div>
                 </div>
                 
-                {/* Soft glow behind cloud */}
-                <div 
-                  className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-r from-primary via-secondary to-accent"
-                  style={{
-                    clipPath: "path('M340 260 C380 220 380 160 340 120 C360 60 300 20 240 40 C200 8 140 8 100 40 C40 20 0 80 40 140 C8 180 8 240 40 280 C20 340 80 392 140 360 C180 392 240 392 280 360 C340 392 400 320 340 260 Z')",
-                    width: '400px',
-                    height: '400px',
-                    transform: 'scale(1.1)'
-                  }}
-                />
+                {/* Floating Labels */}
+                <div className="absolute -top-3 -left-3 px-4 py-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-xl shadow-lg font-semibold text-sm flex items-center gap-2 animate-float">
+                  <Brain className="h-4 w-4" />
+                  Machine Learning
+                </div>
+                
+                <div className="absolute -top-3 -right-3 px-4 py-2 bg-gradient-to-r from-secondary to-secondary/80 text-secondary-foreground rounded-xl shadow-lg font-semibold text-sm flex items-center gap-2 animate-float" style={{ animationDelay: "0.5s" }}>
+                  <Database className="h-4 w-4" />
+                  Data Science
+                </div>
+                
+                <div className="absolute -bottom-3 -left-3 px-4 py-2 bg-gradient-to-r from-accent to-accent/80 text-accent-foreground rounded-xl shadow-lg font-semibold text-sm flex items-center gap-2 animate-float" style={{ animationDelay: "1s" }}>
+                  <TrendingUp className="h-4 w-4" />
+                  MLOps
+                </div>
+                
+                <div className="absolute -bottom-3 -right-3 px-4 py-2 bg-gradient-to-r from-primary/90 to-secondary/90 text-primary-foreground rounded-xl shadow-lg font-semibold text-sm flex items-center gap-2 animate-float" style={{ animationDelay: "1.5s" }}>
+                  <CloudCog className="h-4 w-4" />
+                  AWS Cloud
+                </div>
+                
+                {/* Soft glow behind */}
+                <div className="absolute inset-0 -z-10 blur-3xl opacity-40 bg-gradient-to-r from-primary via-secondary to-accent scale-110 rounded-2xl" />
               </div>
             </div>
           </div>
