@@ -1,7 +1,31 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Sparkles, Award, Brain, Bot, Eye, Wrench, Cpu, Zap, TrendingUp, Database, BarChart3, Activity, Stethoscope, MessageSquare, Cloud, GraduationCap, Wine, Umbrella, Landmark, Trophy } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ExternalLink, Github, Sparkles, Award, Brain, Bot, Eye, Wrench, Cpu, Zap, TrendingUp, Database, BarChart3, Activity, Stethoscope, MessageSquare, Cloud, GraduationCap, Wine, Umbrella, Landmark, Trophy, Target, CheckCircle2, Layers, Clock, X } from "lucide-react";
+
+interface Project {
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  metrics: string[];
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+  gradient: string;
+  githubUrl?: string;
+  isPrivate?: boolean;
+  details?: {
+    problem: string;
+    solution: string;
+    features: string[];
+    impact: string[];
+    timeline?: string;
+  };
+}
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   const categories = [
     {
       name: "Healthcare & Medical AI",
@@ -17,6 +41,25 @@ const Projects = () => {
           color: "primary",
           gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/AI-Assisted-Medical-Image-Diagnosis",
+          details: {
+            problem: "Medical professionals need quick and accurate assistance in interpreting X-ray images, but traditional methods are time-consuming and prone to human error.",
+            solution: "Developed an AI-powered diagnostic tool that leverages Groq Cloud API and advanced LLM vision models to provide rapid, accurate medical image analysis with sub-2-second response times.",
+            features: [
+              "Automated image preprocessing pipeline",
+              "GPU-optimized inference for real-time analysis",
+              "RESTful API for seamless integration",
+              "Support for multiple X-ray image formats",
+              "Confidence scoring for predictions",
+              "CI/CD pipeline for continuous deployment"
+            ],
+            impact: [
+              "Processed 10,000+ medical images",
+              "Achieved 88% diagnostic accuracy",
+              "Reduced analysis time from minutes to seconds",
+              "Enabled faster clinical decision-making"
+            ],
+            timeline: "3 months"
+          }
         },
         {
           title: "End-to-End Chest Cancer Classification",
@@ -29,6 +72,25 @@ const Projects = () => {
           gradient: "from-secondary to-accent",
           githubUrl: "https://github.com/patibandlavenkatamanideep/End-to-End-Chest-cancer-Classification-Using-MLFlow-DVC",
           isPrivate: true,
+          details: {
+            problem: "Cancer classification models require rigorous version control and experiment tracking to ensure reproducibility and continuous improvement in healthcare settings.",
+            solution: "Built a production-grade MLOps pipeline with MLFlow for experiment tracking and DVC for data versioning, enabling automated retraining and model deployment.",
+            features: [
+              "MLFlow experiment tracking & model registry",
+              "DVC for data and model version control",
+              "Automated model retraining pipeline",
+              "Deep learning classification model",
+              "Reproducible training workflows",
+              "Model performance monitoring"
+            ],
+            impact: [
+              "Fully reproducible ML experiments",
+              "Automated model versioning",
+              "Streamlined deployment process",
+              "Improved model governance"
+            ],
+            timeline: "4 months"
+          }
         },
         {
           title: "Complete Medical Chatbot Using LLMs",
@@ -40,6 +102,25 @@ const Projects = () => {
           color: "accent",
           gradient: "from-accent to-primary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Complete-End-to-End-Medical-Chatbot-Using-LLMs",
+          details: {
+            problem: "Patients often have medical questions but lack immediate access to healthcare professionals, leading to anxiety and delayed care.",
+            solution: "Created an LLM-powered chatbot that provides accurate, conversational medical information while maintaining appropriate disclaimers for professional consultation.",
+            features: [
+              "Natural language understanding",
+              "Medical knowledge base integration",
+              "Context-aware conversations",
+              "Safety guardrails for medical advice",
+              "Multi-turn dialogue management",
+              "Source citation for information"
+            ],
+            impact: [
+              "24/7 medical information access",
+              "Reduced burden on healthcare staff",
+              "Improved patient education",
+              "Scalable healthcare assistance"
+            ],
+            timeline: "2 months"
+          }
         },
       ],
     },
@@ -57,6 +138,25 @@ const Projects = () => {
           color: "primary",
           gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/End-to-End-MLOps-Pipeline-for-Wine-Quality-Prediction",
+          details: {
+            problem: "Traditional ML projects lack proper versioning, monitoring, and automated deployment, making them difficult to maintain in production environments.",
+            solution: "Implemented a complete MLOps pipeline demonstrating best practices for the entire ML lifecycle from data ingestion to production deployment.",
+            features: [
+              "Data ingestion and validation",
+              "Feature engineering pipeline",
+              "Model training with hyperparameter tuning",
+              "Model registry and versioning",
+              "Automated testing and validation",
+              "Production deployment automation"
+            ],
+            impact: [
+              "Reduced deployment time by 70%",
+              "Enabled reproducible experiments",
+              "Automated model monitoring",
+              "MIT licensed for community use"
+            ],
+            timeline: "3 months"
+          }
         },
         {
           title: "Red Wine Quality Prediction",
@@ -68,6 +168,25 @@ const Projects = () => {
           color: "secondary",
           gradient: "from-secondary to-accent",
           githubUrl: "https://github.com/patibandlavenkatamanideep/RedWineQualityPrediction_EndtoEnd_MLProject",
+          details: {
+            problem: "Wine quality assessment is traditionally subjective and requires expert sommeliers, making it inaccessible and inconsistent.",
+            solution: "Developed a predictive model using physicochemical properties to objectively assess wine quality with high accuracy.",
+            features: [
+              "Comprehensive EDA and visualization",
+              "Feature engineering and selection",
+              "Multiple algorithm comparison",
+              "Cross-validation and hyperparameter tuning",
+              "Model performance benchmarking",
+              "Interpretable predictions"
+            ],
+            impact: [
+              "Objective quality assessment",
+              "Consistent rating system",
+              "Cost-effective quality control",
+              "Data-driven decision making"
+            ],
+            timeline: "2 months"
+          }
         },
         {
           title: "Student Exam Performance Prediction",
@@ -79,6 +198,25 @@ const Projects = () => {
           color: "accent",
           gradient: "from-accent to-primary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Student_Exam_Performance_Prediction_Mlops",
+          details: {
+            problem: "Educational institutions struggle to identify at-risk students early enough to provide effective intervention and support.",
+            solution: "Built a predictive system with MLOps practices to forecast student performance and enable proactive educational support.",
+            features: [
+              "Student data preprocessing",
+              "Performance prediction models",
+              "Automated training pipelines",
+              "Model versioning and tracking",
+              "Early warning indicators",
+              "Intervention recommendations"
+            ],
+            impact: [
+              "Early identification of at-risk students",
+              "Data-driven intervention strategies",
+              "Improved student outcomes",
+              "Scalable across institutions"
+            ],
+            timeline: "2 months"
+          }
         },
       ],
     },
@@ -96,6 +234,25 @@ const Projects = () => {
           color: "primary",
           gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Sure-Step-Detection-Using-Yolov8",
+          details: {
+            problem: "Falls are a leading cause of injury among elderly and individuals with mobility issues, and delayed response can lead to severe complications.",
+            solution: "Developed a real-time fall detection system using YOLOv8 that instantly alerts caregivers, significantly reducing emergency response time.",
+            features: [
+              "YOLOv8-based pose estimation",
+              "Real-time video stream processing",
+              "AWS Lambda for serverless deployment",
+              "Instant alert notifications",
+              "Model quantization for edge devices",
+              "40% reduced inference costs"
+            ],
+            impact: [
+              "95% fall detection accuracy",
+              "Sub-3 second alert latency",
+              "40% reduction in inference costs",
+              "Enhanced elderly safety monitoring"
+            ],
+            timeline: "4 months"
+          }
         },
       ],
     },
@@ -113,6 +270,25 @@ const Projects = () => {
           color: "primary",
           gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Astro-SalesForecasting-Pipeline",
+          details: {
+            problem: "Businesses need accurate sales forecasts to optimize inventory, staffing, and resource allocation, but traditional methods are often slow and inaccurate.",
+            solution: "Built a real-time forecasting system with an intuitive Streamlit interface that provides instant, accurate sales predictions using ensemble ML models.",
+            features: [
+              "Streamlit interactive dashboard",
+              "XGBoost and LightGBM models",
+              "Ensemble prediction methods",
+              "Real-time forecast updates",
+              "Interactive visualizations",
+              "CSV export functionality"
+            ],
+            impact: [
+              "Instant sales predictions",
+              "Improved inventory planning",
+              "User-friendly interface",
+              "Data-driven business decisions"
+            ],
+            timeline: "2 months"
+          }
         },
         {
           title: "Rainfall Prediction ML",
@@ -124,6 +300,25 @@ const Projects = () => {
           color: "secondary",
           gradient: "from-secondary to-accent",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Rainfall-Prediction-Using-Machine-Learning",
+          details: {
+            problem: "Accurate rainfall prediction is crucial for agriculture, disaster preparedness, and water resource management but requires sophisticated analysis.",
+            solution: "Developed a Random Forest-based prediction model with comprehensive data preprocessing to accurately forecast rainfall patterns.",
+            features: [
+              "Comprehensive data cleaning",
+              "Feature engineering pipeline",
+              "Random Forest classification",
+              "Cross-validation analysis",
+              "Model performance metrics",
+              "Kaggle dataset integration"
+            ],
+            impact: [
+              "High prediction accuracy",
+              "Agricultural planning support",
+              "Disaster preparedness",
+              "Water resource optimization"
+            ],
+            timeline: "1 month"
+          }
         },
         {
           title: "Loan Status Prediction",
@@ -135,6 +330,25 @@ const Projects = () => {
           color: "accent",
           gradient: "from-accent to-primary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Loan-Status-Prediction",
+          details: {
+            problem: "Manual loan approval processes are time-consuming and can be inconsistent, leading to delays and potential bias in lending decisions.",
+            solution: "Created an ML model that predicts loan approval status based on applicant features, enabling faster and more consistent lending decisions.",
+            features: [
+              "Applicant data analysis",
+              "Feature engineering for finance",
+              "Multiple classification algorithms",
+              "Model comparison and selection",
+              "Risk score generation",
+              "Interpretable predictions"
+            ],
+            impact: [
+              "Faster loan processing",
+              "Consistent approval criteria",
+              "Reduced manual effort",
+              "Risk-aware lending"
+            ],
+            timeline: "1 month"
+          }
         },
       ],
     },
@@ -152,6 +366,25 @@ const Projects = () => {
           color: "primary",
           gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Business_Case_Studies---Analytics",
+          details: {
+            problem: "Business decisions often lack data-driven insights due to the complexity of analyzing diverse datasets and extracting actionable intelligence.",
+            solution: "Compiled a portfolio of real-world case studies demonstrating end-to-end analytics workflows using SQL, Python, and visualization tools.",
+            features: [
+              "Real-world business scenarios",
+              "SQL query analysis",
+              "Python data processing",
+              "Statistical hypothesis testing",
+              "Interactive visualizations",
+              "Actionable recommendations"
+            ],
+            impact: [
+              "Demonstrated analytical skills",
+              "Multi-tool proficiency",
+              "Industry-relevant solutions",
+              "Community recognition (starred)"
+            ],
+            timeline: "Ongoing"
+          }
         },
         {
           title: "Cricket Data Analytics",
@@ -163,6 +396,25 @@ const Projects = () => {
           color: "secondary",
           gradient: "from-secondary to-accent",
           githubUrl: "https://github.com/patibandlavenkatamanideep/cricket-data-analytics",
+          details: {
+            problem: "Cricket fans and analysts need accessible tools to explore match statistics and player performance across tournaments.",
+            solution: "Built an interactive Power BI dashboard that enables comprehensive analysis of T20 World Cup data with intuitive visualizations.",
+            features: [
+              "Interactive Power BI dashboard",
+              "Match-by-match analysis",
+              "Player performance metrics",
+              "Team comparison charts",
+              "Historical trend analysis",
+              "Filtering and drill-down"
+            ],
+            impact: [
+              "Easy data exploration",
+              "Visual storytelling",
+              "Fan engagement",
+              "Sports analytics showcase"
+            ],
+            timeline: "1 month"
+          }
         },
       ],
     },
@@ -179,6 +431,25 @@ const Projects = () => {
           icon: Bot,
           color: "primary",
           gradient: "from-primary to-secondary",
+          details: {
+            problem: "Job seekers spend countless hours manually tailoring resumes and applications for each position, leading to fatigue and missed opportunities.",
+            solution: "Architected an intelligent automation system using GPT-4 that automates resume optimization and skills extraction through a multi-stage LLM pipeline.",
+            features: [
+              "n8n workflow orchestration",
+              "GPT-4 powered analysis",
+              "Resume optimization engine",
+              "Skills extraction and matching",
+              "Multi-stage LLM pipeline",
+              "Automated application tracking"
+            ],
+            impact: [
+              "90% reduction in manual effort",
+              "Consistent resume quality",
+              "Faster application turnaround",
+              "Improved job match rates"
+            ],
+            timeline: "2 months"
+          }
         },
         {
           title: "Predictive Maintenance System",
@@ -189,6 +460,25 @@ const Projects = () => {
           icon: Cloud,
           color: "secondary",
           gradient: "from-secondary to-accent",
+          details: {
+            problem: "Industrial equipment failures cause significant downtime and costs, but traditional scheduled maintenance is inefficient and often too late.",
+            solution: "Developed an LSTM-based forecasting system that predicts equipment failures before they occur, enabling proactive maintenance.",
+            features: [
+              "LSTM time-series forecasting",
+              "AWS Step Functions orchestration",
+              "CloudWatch monitoring",
+              "Automated model retraining",
+              "Failure prediction alerts",
+              "Distributed processing"
+            ],
+            impact: [
+              "30% improvement in prediction accuracy",
+              "40% reduction in maintenance costs",
+              "Minimized unplanned downtime",
+              "Optimized maintenance schedules"
+            ],
+            timeline: "4 months"
+          }
         },
       ],
     },
@@ -335,6 +625,7 @@ const Projects = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-1 border-secondary/30 hover:bg-secondary/10 hover:scale-105 transition-all"
+                        onClick={() => setSelectedProject(project)}
                       >
                         <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
                         Details
@@ -375,6 +666,134 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Project Details Modal */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card to-card/95 border-border">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-xl bg-gradient-to-br from-${selectedProject.color}/20 to-${selectedProject.color}/10 border border-${selectedProject.color}/30`}>
+                    <selectedProject.icon className={`h-6 w-6 text-${selectedProject.color}`} />
+                  </div>
+                  <div className="flex-1">
+                    <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
+                    <p className={`text-${selectedProject.color} font-medium mt-1`}>{selectedProject.subtitle}</p>
+                  </div>
+                </div>
+              </DialogHeader>
+
+              <div className="space-y-6 mt-4">
+                {/* Metrics */}
+                <div className="flex flex-wrap gap-3">
+                  {selectedProject.metrics.map((metric, idx) => (
+                    <div key={idx} className={`flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-${selectedProject.color}/15 to-${selectedProject.color}/5 border border-${selectedProject.color}/20 font-semibold`}>
+                      <Zap className={`h-4 w-4 text-${selectedProject.color}`} />
+                      {metric}
+                    </div>
+                  ))}
+                  {selectedProject.details?.timeline && (
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border font-semibold">
+                      <Clock className="h-4 w-4 text-muted-foreground" />
+                      {selectedProject.details.timeline}
+                    </div>
+                  )}
+                </div>
+
+                {selectedProject.details && (
+                  <>
+                    {/* Problem */}
+                    <div className="p-4 rounded-xl bg-muted/30 border border-border">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Target className="h-5 w-5 text-destructive" />
+                        <h4 className="font-semibold">The Problem</h4>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{selectedProject.details.problem}</p>
+                    </div>
+
+                    {/* Solution */}
+                    <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                        <h4 className="font-semibold">The Solution</h4>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{selectedProject.details.solution}</p>
+                    </div>
+
+                    {/* Features */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Layers className="h-5 w-5 text-secondary" />
+                        <h4 className="font-semibold">Key Features</h4>
+                      </div>
+                      <div className="grid sm:grid-cols-2 gap-2">
+                        {selectedProject.details.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start gap-2 p-3 rounded-lg bg-muted/20 border border-border/50">
+                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                            <span className="text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Impact */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Award className="h-5 w-5 text-accent" />
+                        <h4 className="font-semibold">Impact & Results</h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.details.impact.map((item, idx) => (
+                          <div key={idx} className="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* Tech Stack */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Cpu className="h-5 w-5 text-muted-foreground" />
+                    <h4 className="font-semibold">Tech Stack</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tech.map((tech, idx) => (
+                      <span key={idx} className="px-3 py-1.5 rounded-lg bg-muted/50 border border-border text-sm font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3 pt-4 border-t border-border">
+                  {selectedProject.githubUrl && (
+                    <Button 
+                      className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                      onClick={() => window.open(selectedProject.githubUrl, '_blank')}
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      View Source Code
+                    </Button>
+                  )}
+                  <Button 
+                    variant="outline" 
+                    className="flex-1"
+                    onClick={() => setSelectedProject(null)}
+                  >
+                    <X className="mr-2 h-4 w-4" />
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
