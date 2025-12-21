@@ -11,10 +11,15 @@ const Portfolio = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
+    // Make the first section visible immediately
+    if (sectionsRef.current[0]) {
+      sectionsRef.current[0].classList.add("section-visible");
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.2,
+      threshold: 0.1,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -39,12 +44,12 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth relative">
+    <div className="h-screen overflow-y-auto scroll-smooth relative">
       <ParallaxBackground />
       <section
         id="home" 
         ref={(el) => (sectionsRef.current[0] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-zoom"
+        className="min-h-screen pt-16 section-animate animate-zoom"
       >
         <Home />
       </section>
@@ -52,7 +57,7 @@ const Portfolio = () => {
       <section 
         id="about" 
         ref={(el) => (sectionsRef.current[1] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-slide-left"
+        className="min-h-screen pt-16 section-animate animate-slide-left"
       >
         <About />
       </section>
@@ -60,7 +65,7 @@ const Portfolio = () => {
       <section 
         id="experience" 
         ref={(el) => (sectionsRef.current[2] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-slide-right"
+        className="min-h-screen pt-16 section-animate animate-slide-right"
       >
         <Experience />
       </section>
@@ -68,7 +73,7 @@ const Portfolio = () => {
       <section 
         id="skills" 
         ref={(el) => (sectionsRef.current[3] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-zoom"
+        className="min-h-screen pt-16 section-animate animate-zoom"
       >
         <Skills />
       </section>
@@ -76,7 +81,7 @@ const Portfolio = () => {
       <section 
         id="projects" 
         ref={(el) => (sectionsRef.current[4] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-slide-left"
+        className="pt-16 section-visible"
       >
         <Projects />
       </section>
@@ -84,7 +89,7 @@ const Portfolio = () => {
       <section 
         id="contact" 
         ref={(el) => (sectionsRef.current[5] = el)}
-        className="snap-start snap-always min-h-screen pt-16 section-animate animate-slide-right"
+        className="min-h-screen pt-16 section-animate animate-slide-right"
       >
         <Contact />
       </section>
