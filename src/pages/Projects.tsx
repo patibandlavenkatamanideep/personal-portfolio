@@ -62,14 +62,45 @@ const Projects = () => {
           }
         },
         {
+          title: "End-to-End Chicken Disease Classification",
+          subtitle: "CNN with AWS Deployment",
+          description: "Deep learning pipeline for classifying chicken diseases using CNN and TensorFlow, with complete MLOps workflow including DVC, Docker containerization, and AWS deployment via CI/CD.",
+          tech: ["Python 3.8", "TensorFlow", "Keras", "CNN", "Flask", "DVC", "Docker", "AWS EC2", "AWS ECR", "GitHub Actions"],
+          metrics: ["CNN Model", "AWS Deployed", "CI/CD Pipeline"],
+          icon: Activity,
+          color: "secondary",
+          gradient: "from-secondary to-accent",
+          githubUrl: "https://github.com/patibandlavenkatamanideep/EndtoEnd_Chicken_Disease_Classification",
+          details: {
+            problem: "Poultry farmers face significant losses due to undetected chicken diseases, and manual identification is time-consuming and requires expert knowledge.",
+            solution: "Built an end-to-end deep learning solution using CNN for automated chicken disease classification with production-ready deployment on AWS infrastructure.",
+            features: [
+              "CNN-based image classification model",
+              "TensorFlow/Keras deep learning pipeline",
+              "Flask web application for inference",
+              "DVC for data and model versioning",
+              "Docker containerization",
+              "AWS EC2 & ECR deployment",
+              "GitHub Actions CI/CD pipeline"
+            ],
+            impact: [
+              "Automated disease detection",
+              "Production-ready AWS deployment",
+              "Reproducible ML workflow with DVC",
+              "Scalable containerized solution"
+            ],
+            timeline: "3 months"
+          }
+        },
+        {
           title: "End-to-End Chest Cancer Classification",
           subtitle: "MLFlow & DVC Pipeline",
           description: "Complete MLOps pipeline for chest cancer classification using MLFlow for experiment tracking and DVC for data version control with automated model training.",
           tech: ["Python", "MLFlow", "DVC", "Deep Learning", "Medical AI"],
           metrics: ["MLOps Pipeline", "Version Control", "Auto-Retraining"],
           icon: Activity,
-          color: "secondary",
-          gradient: "from-secondary to-accent",
+          color: "accent",
+          gradient: "from-accent to-primary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/End-to-End-Chest-cancer-Classification-Using-MLFlow-DVC",
           isPrivate: true,
           details: {
@@ -99,8 +130,8 @@ const Projects = () => {
           tech: ["Jupyter Notebook", "LLMs", "NLP", "Healthcare", "Apache License"],
           metrics: ["LLM Powered", "Medical Domain", "Conversational AI"],
           icon: MessageSquare,
-          color: "accent",
-          gradient: "from-accent to-primary",
+          color: "primary",
+          gradient: "from-primary to-secondary",
           githubUrl: "https://github.com/patibandlavenkatamanideep/Complete-End-to-End-Medical-Chatbot-Using-LLMs",
           details: {
             problem: "Patients often have medical questions but lack immediate access to healthcare professionals, leading to anxiety and delayed care.",
@@ -431,6 +462,7 @@ const Projects = () => {
           icon: Bot,
           color: "primary",
           gradient: "from-primary to-secondary",
+          githubUrl: "https://github.com/patibandlavenkatamanideep",
           details: {
             problem: "Job seekers spend countless hours manually tailoring resumes and applications for each position, leading to fatigue and missed opportunities.",
             solution: "Architected an intelligent automation system using GPT-4 that automates resume optimization and skills extraction through a multi-stage LLM pipeline.",
@@ -460,6 +492,7 @@ const Projects = () => {
           icon: Cloud,
           color: "secondary",
           gradient: "from-secondary to-accent",
+          githubUrl: "https://github.com/patibandlavenkatamanideep",
           details: {
             problem: "Industrial equipment failures cause significant downtime and costs, but traditional scheduled maintenance is inefficient and often too late.",
             solution: "Developed an LSTM-based forecasting system that predicts equipment failures before they occur, enabling proactive maintenance.",
