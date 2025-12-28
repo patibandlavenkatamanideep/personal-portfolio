@@ -93,14 +93,45 @@ const Projects = () => {
           }
         },
         {
+          title: "US Visa Approval Prediction",
+          subtitle: "Production MLOps Pipeline",
+          description: "End-to-end machine learning system for predicting US visa approvals using modular architecture with MongoDB, EvidentlyAI for model monitoring, and Docker-based CI/CD deployment.",
+          tech: ["Python", "Scikit-learn", "Flask", "MongoDB", "EvidentlyAI", "Docker", "GitHub Actions"],
+          metrics: ["MLOps Ready", "Model Monitoring", "CI/CD Pipeline"],
+          icon: Landmark,
+          color: "accent",
+          gradient: "from-accent to-primary",
+          githubUrl: "https://github.com/patibandlavenkatamanideep/US_Visa_Approval_Prediction",
+          details: {
+            problem: "US visa application screening is a complex, time-consuming process that requires evaluating multiple applicant factors to predict approval likelihood.",
+            solution: "Developed a production-ready MLOps pipeline with modular architecture for visa approval prediction, featuring data drift monitoring and automated CI/CD deployment.",
+            features: [
+              "Modular ML pipeline (Ingestion, Validation, Training, Evaluation)",
+              "MongoDB for scalable data storage",
+              "EvidentlyAI for data drift & model monitoring",
+              "Flask web application for predictions",
+              "Docker containerization",
+              "GitHub Actions CI/CD workflows",
+              "EasyVisa dataset integration"
+            ],
+            impact: [
+              "Automated visa screening predictions",
+              "Real-time model monitoring for drift detection",
+              "Production-ready containerized deployment",
+              "Reproducible ML workflows"
+            ],
+            timeline: "3 months"
+          }
+        },
+        {
           title: "End-to-End Chest Cancer Classification",
           subtitle: "MLFlow & DVC Pipeline",
           description: "Complete MLOps pipeline for chest cancer classification using MLFlow for experiment tracking and DVC for data version control with automated model training.",
           tech: ["Python", "MLFlow", "DVC", "Deep Learning", "Medical AI"],
           metrics: ["MLOps Pipeline", "Version Control", "Auto-Retraining"],
           icon: Activity,
-          color: "accent",
-          gradient: "from-accent to-primary",
+          color: "secondary",
+          gradient: "from-secondary to-accent",
           githubUrl: "https://github.com/patibandlavenkatamanideep/End-to-End-Chest-cancer-Classification-Using-MLFlow-DVC",
           isPrivate: true,
           details: {
