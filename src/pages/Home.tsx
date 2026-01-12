@@ -112,7 +112,7 @@ const Home = () => {
               </div>
               
               <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Transforming data into <span className="text-foreground font-semibold">actionable insights</span> with 3+ years of experience in ML, MLOps, and cloud deployment. Specialized in building <span className="text-foreground font-semibold">production-ready AI systems</span>.
+                Transforming data into <span className="text-foreground font-semibold">actionable insights</span> with 1+ year of experience building production ML systems and scalable data pipelines. Specialized in <span className="text-foreground font-semibold">Python, SQL, and AWS</span>.
               </p>
             </div>
 
@@ -233,7 +233,7 @@ const Home = () => {
         {/* Enhanced Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-24 animate-fade-in-delay">
           {[
-            { value: "3+", label: "Years Experience", icon: TrendingUp, color: "primary" },
+            { value: "1+", label: "Years Experience", icon: TrendingUp, color: "primary" },
             { value: "15+", label: "ML Projects", icon: Brain, color: "secondary" },
             { value: "AWS", label: "Cloud Certified", icon: CloudCog, color: "accent" },
             { value: "Python", label: "Primary Stack", icon: Code2, color: "primary" },
