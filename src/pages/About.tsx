@@ -122,7 +122,7 @@ const About = () => {
               >
                 <a 
                   href="/Venkata_Manideep_ML_Engineer.pdf" 
-                  download="Venkata_Manideep_ML_Engineer.pdf"
+                  download="Venkata_Manideep_Resume.pdf"
                 >
                   <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                   Download Resume

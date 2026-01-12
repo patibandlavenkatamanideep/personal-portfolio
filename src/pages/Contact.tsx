@@ -251,8 +251,8 @@ const Contact = () => {
                   className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
                 >
                   <a 
-                    href="/Venkata_Manideep_Patibandla_Resume.pdf" 
-                    download="Venkata_Manideep_Patibandla_Resume.pdf"
+                    href="/Venkata_Manideep_ML_Engineer.pdf" 
+                    download="Venkata_Manideep_Resume.pdf"
                     className="flex items-center"
                   >
                     Download Resume
