@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, GraduationCap, Award, Target, Rocket, Code, TrendingUp, Cloud, BookOpen, Users, Trophy, GraduationCapIcon } from "lucide-react";
+import { Download, GraduationCap, Award, Target, Rocket, Code, TrendingUp, Cloud, BookOpen, Users, Trophy, GraduationCapIcon, Database, BarChart3 } from "lucide-react";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -11,45 +11,33 @@ const scrollToSection = (sectionId: string) => {
 const About = () => {
   const education = [
     {
-      degree: "Master's Degree in Computer and Information Science",
-      institution: "Sacred Heart University",
+      degree: "Master of Science in Computer Science and Information Technology",
+      institution: "Sacred Heart University, Fairfield, CT",
       period: "GPA: 3.8",
-      highlight: "Minor in Computer and Information Science",
+      highlight: "March 2025",
       icon: GraduationCap,
     },
     {
-      degree: "Bachelor of Technology in Information Technology",
-      institution: "GMR Institute of Technology",
+      degree: "Bachelor of Information Technology",
+      institution: "GMR Institute of Technology, Vizianagaram, India",
       period: "GPA: 3.6",
-      highlight: "Minor in Information Technology",
+      highlight: "May 2023",
       icon: GraduationCap,
     },
   ];
 
   const recognitions = [
     {
-      title: "Research Publication",
-      description: "Published research paper on Deep Learning Approaches for Mood-Based Music Endorsement Systems",
-      organization: "Neuroquantology Journal",
-      icon: BookOpen,
-    },
-    {
-      title: "National Service Scheme Volunteer",
-      description: "Volunteered for NSS (National Service Scheme) for over 2 years",
-      organization: "Community Service",
-      icon: Users,
-    },
-    {
-      title: "Upsilon Pi Epsilon Recognition",
-      description: "Recognized by UPE for outstanding discipline and academic excellence",
+      title: "Upsilon Pi Epsilon (UPE) Honor Society",
+      description: "Recognized for academic excellence, discipline, and outstanding performance in Computer Science",
       organization: "Honor Society",
       icon: Trophy,
     },
     {
-      title: "Teaching Assistant",
-      description: "Served as TA for Database and Data Structures, providing support to faculty and students",
-      organization: "Sacred Heart University",
-      icon: GraduationCapIcon,
+      title: "Research Publication",
+      description: "A Study on Deep Learning Approaches for Mood-Based Music Recommendation Systems - Designed and evaluated CNN-based architectures for emotion-aware music recommendation",
+      organization: "Academic Research",
+      icon: BookOpen,
     },
   ];
 
@@ -89,10 +77,10 @@ const About = () => {
                   <h2 className="text-2xl font-bold">Professional Summary</h2>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Master's in Computer Science with <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">3+ years of experience</span> in Data Analysis and Machine Learning. Skilled in Python, SQL, ML model development, deployment using Flask/Streamlit, and AWS cloud services.
+                  Master's in Computer Science with <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">1+ year building production ML systems</span> and scalable data pipelines. Specializing in Python, SQL, and AWS with expertise in developing and deploying ML models using Flask.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Experienced in <span className="text-foreground font-semibold bg-secondary/10 px-2 py-0.5 rounded">CI/CD workflows, data pipelines, and Tableau dashboards</span>. Passionate about delivering scalable, data-driven solutions with production-ready ML systems.
+                  Expert in implementing <span className="text-foreground font-semibold bg-secondary/10 px-2 py-0.5 rounded">CI/CD workflows and creating Tableau dashboards</span> that deliver actionable insights. Proven track record solving real-world problems through data-driven solutions with strong analytical skills and a passion for innovative technology.
                 </p>
               </div>
             </div>
@@ -102,26 +90,26 @@ const About = () => {
               <div className="group relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Code className="h-8 w-8 text-primary mb-3" />
-                <div className="relative text-3xl font-bold text-primary mb-1">15+</div>
-                <div className="relative text-sm text-muted-foreground font-medium">ML Projects</div>
+                <div className="relative text-3xl font-bold text-primary mb-1">Python</div>
+                <div className="relative text-sm text-muted-foreground font-medium">ML & Data Science</div>
               </div>
               <div className="group relative p-6 rounded-xl bg-gradient-to-br from-secondary/10 to-secondary/5 border border-secondary/20 hover:border-secondary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <TrendingUp className="h-8 w-8 text-secondary mb-3" />
-                <div className="relative text-3xl font-bold text-secondary mb-1">3+</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Years Experience</div>
+                <Database className="h-8 w-8 text-secondary mb-3" />
+                <div className="relative text-3xl font-bold text-secondary mb-1">SQL</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Data Warehousing</div>
               </div>
               <div className="group relative p-6 rounded-xl bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Cloud className="h-8 w-8 text-accent mb-3" />
                 <div className="relative text-3xl font-bold text-accent mb-1">AWS</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Cloud Expert</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Cloud Services</div>
               </div>
               <div className="group relative p-6 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 transition-all hover:scale-105 hover:shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Rocket className="h-8 w-8 text-primary mb-3" />
-                <div className="relative text-3xl font-bold text-primary mb-1">MLOps</div>
-                <div className="relative text-sm text-muted-foreground font-medium">Specialist</div>
+                <BarChart3 className="h-8 w-8 text-primary mb-3" />
+                <div className="relative text-3xl font-bold text-primary mb-1">Tableau</div>
+                <div className="relative text-sm text-muted-foreground font-medium">Visualization</div>
               </div>
             </div>
 
@@ -209,9 +197,9 @@ const About = () => {
               </div>
             </div>
             <h2 className="text-4xl font-bold mb-3">
-              Recognitions &{" "}
+              Awards &{" "}
               <span className="bg-gradient-to-r from-secondary via-accent to-primary bg-clip-text text-transparent">
-                Achievements
+                Publications
               </span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -219,7 +207,7 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {recognitions.map((recognition, index) => {
               const Icon = recognition.icon;
               return (
