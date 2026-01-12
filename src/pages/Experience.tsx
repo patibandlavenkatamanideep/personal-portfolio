@@ -4,48 +4,31 @@ const Experience = () => {
   const experiences = [
     {
       company: "Infosoft Solutions",
-      location: "West Windsor, NJ",
+      location: "Windsor, New Jersey",
       role: "Data Analyst",
       period: "Aug 2025 – Present",
       type: "Full-time",
       responsibilities: [
-        "Engineered ML infrastructure using PyTorch and Python (Scikit-learn, XGBoost) achieving 92% accuracy across 50,000+ records",
-        "Implementing production-ready systems with RESTful APIs and CI/CD that reduced inference latency by 35%",
-        "Designed GPU-optimized training pipelines and feature engineering workflows that reduced model development time by 40%",
-        "Automated validation through parallel processing for enterprise-scale deployments",
+        "Designed and optimized SQL-based data warehouse architectures processing 10k+ records/day, improving query performance by 45% through efficient schema design and data modeling",
+        "Applied Python (Pandas, NumPy, SciPy) and statistical analysis to large datasets (5K+ records), enabling predictive and diagnostic analytics with 92% model accuracy",
+        "Developed Tableau dashboards and analytical reports across 8+ business units, delivering actionable insights to stakeholders through interactive visualizations",
       ],
-      highlights: ["92% Accuracy", "35% Latency ↓", "40% Dev Time ↓"],
+      highlights: ["92% Accuracy", "45% Query Perf ↑", "8+ Business Units"],
       color: "primary",
     },
     {
-      company: "Happiest Minds Technology",
-      location: "Bengaluru, India",
-      role: "Data Analyst",
-      period: "April 2021 – January 2024",
-      type: "Full-time",
-      responsibilities: [
-        "Architected LLM-powered automation platform leveraging GPT-4 APIs with retrieval-augmented generation (RAG)",
-        "Reduced manual processing by 90% through prompt engineering, semantic search, and vector embeddings across 100K+ operations",
-        "Implemented distributed workflow systems with monitoring and caching strategies",
-        "Improved throughput by 60% through cross-functional collaboration with product and engineering teams",
-      ],
-      highlights: ["90% Automation", "60% Throughput ↑", "100K+ Operations"],
-      color: "secondary",
-    },
-    {
-      company: "ION Technology Solutions",
+      company: "Ion Technology Solutions",
       location: "Vijayawada, India",
       role: "Data Analyst Intern",
-      period: "Sep 2020 – Feb 2021",
+      period: "Nov 2022 – Feb 2023",
       type: "Internship",
       responsibilities: [
-        "Built production PyTorch CNN pipeline for document classification processing 10K+ documents with 91% accuracy",
-        "Implemented embedding-based similarity search and CI/CD automation",
-        "Reduced feature engineering time by 85% through automated pipelines",
-        "Deployed scalable inference systems with comprehensive monitoring and performance optimization",
+        "Designed SQL-based data pipelines using Python (Pandas, NumPy), processing 50K+ records with data preparation, transformation, cleaning, and validation techniques ensuring data quality",
+        "Conducted data mining and exploratory data analysis using statistical packages; analyzed datasets paying attention to trends and patterns",
+        "Extracted insights supporting business recommendations and diagnostic analytics efforts",
       ],
-      highlights: ["91% Accuracy", "85% Feature Eng ↓", "10K+ Documents"],
-      color: "accent",
+      highlights: ["50K+ Records", "Data Pipelines", "EDA & Analytics"],
+      color: "secondary",
     },
   ];
 
@@ -72,7 +55,7 @@ const Experience = () => {
             </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            3+ years of building data-driven solutions and ML systems
+            1+ year building production ML systems and scalable data pipelines
           </p>
         </div>
 
@@ -168,10 +151,10 @@ const Experience = () => {
         {/* Summary Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           {[
-            { label: "Years Experience", value: "3+", icon: Calendar },
-            { label: "ML Accuracy", value: "92%", icon: TrendingUp },
-            { label: "Processing Reduction", value: "90%", icon: Zap },
-            { label: "Companies", value: "3", icon: Building2 },
+            { label: "Years Experience", value: "1+", icon: Calendar },
+            { label: "Model Accuracy", value: "92%", icon: TrendingUp },
+            { label: "Query Perf Gain", value: "45%", icon: Zap },
+            { label: "Companies", value: "2", icon: Building2 },
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-105 text-center group">
               <stat.icon className="h-6 w-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />
