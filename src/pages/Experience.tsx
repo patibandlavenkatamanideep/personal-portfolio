@@ -55,7 +55,7 @@ const Experience = () => {
             </span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            1+ year building production ML systems and scalable data pipelines
+            Building production ML systems and scalable data pipelines
           </p>
         </div>
 
@@ -151,10 +151,10 @@ const Experience = () => {
         {/* Summary Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           {[
-            { label: "Years Experience", value: "1+", icon: Calendar },
             { label: "Model Accuracy", value: "92%", icon: TrendingUp },
             { label: "Query Perf Gain", value: "45%", icon: Zap },
             { label: "Companies", value: "2", icon: Building2 },
+            { label: "Records Processed", value: "50K+", icon: Calendar },
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-105 text-center group">
               <stat.icon className="h-6 w-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />

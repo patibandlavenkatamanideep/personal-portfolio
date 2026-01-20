@@ -77,7 +77,7 @@ const About = () => {
                   <h2 className="text-2xl font-bold">Professional Summary</h2>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Master's in Computer Science with <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">1+ year building production ML systems</span> and scalable data pipelines. Specializing in Python, SQL, and AWS with expertise in developing and deploying ML models using Flask.
+                  Master's in Computer Science with expertise in <span className="text-foreground font-semibold bg-primary/10 px-2 py-0.5 rounded">building production ML systems</span> and scalable data pipelines. Specializing in Python, SQL, and AWS with proficiency in developing and deploying ML models using Flask.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Expert in implementing <span className="text-foreground font-semibold bg-secondary/10 px-2 py-0.5 rounded">CI/CD workflows and creating Tableau dashboards</span> that deliver actionable insights. Proven track record solving real-world problems through data-driven solutions with strong analytical skills and a passion for innovative technology.
