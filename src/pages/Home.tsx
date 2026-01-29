@@ -136,7 +136,7 @@ const Home = () => {
                 className="group border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all hover:scale-105 shadow-lg"
               >
                 <a 
-                  href="/Venkata_Manideep_ML_Engineer.pdf" 
+                  href="/Venkata_Manideep_Resume.pdf" 
                   download="Venkata_Manideep_Resume.pdf"
                 >
                   <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />

@@ -3,6 +3,20 @@ import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2, Zap, Building2 }
 const Experience = () => {
   const experiences = [
     {
+      company: "ElevateMe",
+      location: "Remote",
+      role: "Data Analytics & Machine Learning Fellow Trainee",
+      period: "Jan 2026 – Present",
+      type: "Fellowship",
+      responsibilities: [
+        "Built SQL-driven data pipelines across 180+ relational tables on Azure, implementing Python-based ETL workflows that uncovered critical genre performance metrics and revenue distribution patterns",
+        "Analyzed entertainment industry revenue streams using statistical analysis techniques, identifying key growth opportunities and cross-market correlations between genres and event types",
+        "Produced interactive data visualizations using Tableau highlighting artist pricing variations and multi-year revenue trends, enabling executives to make data-driven decisions for talent acquisition and market expansion",
+      ],
+      highlights: ["180+ Tables", "Azure Pipelines", "Tableau Dashboards"],
+      color: "accent",
+    },
+    {
       company: "Infosoft Solutions",
       location: "Windsor, New Jersey",
       role: "Data Analyst",
@@ -10,22 +24,22 @@ const Experience = () => {
       type: "Full-time",
       responsibilities: [
         "Designed and optimized SQL-based data warehouse architectures processing 10k+ records/day, improving query performance by 45% through efficient schema design and data modeling",
+        "Performed A/B testing and cohort analysis on 50K+ user records measuring campaign effectiveness; translated complex analytical findings into business recommendations",
         "Applied Python (Pandas, NumPy, SciPy) and statistical analysis to large datasets (5K+ records), enabling predictive and diagnostic analytics with 92% model accuracy",
         "Developed Tableau dashboards and analytical reports across 8+ business units, delivering actionable insights to stakeholders through interactive visualizations",
       ],
-      highlights: ["92% Accuracy", "45% Query Perf ↑", "8+ Business Units"],
+      highlights: ["92% Accuracy", "45% Query Perf ↑", "A/B Testing"],
       color: "primary",
     },
     {
       company: "Ion Technology Solutions",
       location: "Vijayawada, India",
       role: "Data Analyst Intern",
-      period: "Nov 2022 – Feb 2023",
+      period: "Nov 2022 – Apr 2023",
       type: "Internship",
       responsibilities: [
         "Designed SQL-based data pipelines using Python (Pandas, NumPy), processing 50K+ records with data preparation, transformation, cleaning, and validation techniques ensuring data quality",
-        "Conducted data mining and exploratory data analysis using statistical packages; analyzed datasets paying attention to trends and patterns",
-        "Extracted insights supporting business recommendations and diagnostic analytics efforts",
+        "Conducted data mining and exploratory data analysis using statistical packages; analyzed datasets paying attention to trends and patterns, extracting insights supporting business recommendations",
       ],
       highlights: ["50K+ Records", "Data Pipelines", "EDA & Analytics"],
       color: "secondary",
@@ -153,8 +167,8 @@ const Experience = () => {
           {[
             { label: "Model Accuracy", value: "92%", icon: TrendingUp },
             { label: "Query Perf Gain", value: "45%", icon: Zap },
-            { label: "Companies", value: "2", icon: Building2 },
-            { label: "Records Processed", value: "50K+", icon: Calendar },
+            { label: "Companies", value: "3", icon: Building2 },
+            { label: "Tables Processed", value: "180+", icon: Calendar },
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all hover:scale-105 text-center group">
               <stat.icon className="h-6 w-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />

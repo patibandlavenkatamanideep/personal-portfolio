@@ -71,8 +71,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "pvmanideep.data@gmail.com",
-      href: "mailto:pvmanideep.data@gmail.com",
+      value: "pvmanideep.analytics@gmail.com",
+      href: "mailto:pvmanideep.analytics@gmail.com",
       color: "primary",
     },
     {
@@ -250,8 +250,8 @@ const Contact = () => {
                   asChild
                   className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
                 >
-                  <a 
-                    href="/Venkata_Manideep_ML_Engineer.pdf" 
+                <a 
+                    href="/Venkata_Manideep_Resume.pdf" 
                     download="Venkata_Manideep_Resume.pdf"
                     className="flex items-center"
                   >
