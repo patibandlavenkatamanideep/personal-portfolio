@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ExternalLink, Github, Sparkles, Award, Brain, Bot, Eye, Wrench, Cpu, Zap, TrendingUp, Database, BarChart3, Activity, Stethoscope, MessageSquare, Cloud, GraduationCap, Wine, Umbrella, Landmark, Trophy, Target, CheckCircle2, Layers, Clock, X, Download, Mail } from "lucide-react";
-import FeaturedProjects from "@/components/FeaturedProjects";
+
 import RecruiterCTA from "@/components/RecruiterCTA";
 import { ProjectCategoryTabs, categories } from "@/components/ProjectCategoryTabs";
 
@@ -400,8 +400,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Featured Projects Section */}
-        <FeaturedProjects />
 
         {/* Category Tabs */}
         <ProjectCategoryTabs 
