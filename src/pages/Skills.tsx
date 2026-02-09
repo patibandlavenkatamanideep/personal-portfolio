@@ -184,6 +184,12 @@ const Skills = () => {
                       style={{ width: `${skill.level}%`, animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-float" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Professional Certifications */}
@@ -206,12 +212,6 @@ const Skills = () => {
                   <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{cert.name}</h3>
                   <p className="text-sm text-muted-foreground">Issued by {cert.issuer}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
               ))}
             </div>
           </div>
