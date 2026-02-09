@@ -1,4 +1,4 @@
-import { Code, Database, Cloud, Wrench, Brain, TrendingUp, Sparkles, Zap, Bot, BarChart3 } from "lucide-react";
+import { Code, Database, Cloud, Wrench, Brain, TrendingUp, Sparkles, Zap, Bot, BarChart3, Award, ExternalLink } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
@@ -9,50 +9,11 @@ const Skills = () => {
       skills: [
         "Python",
         "SQL",
+        "Machine Learning",
         "PyTorch",
+        "TensorFlow",
         "Scikit-learn",
-        "LangChain",
-        "Azure OpenAI",
-        "RAG Workflows",
-      ],
-    },
-    {
-      title: "Cloud & Infrastructure",
-      icon: Cloud,
-      color: "secondary",
-      skills: [
-        "Azure",
-        "AWS Lambda",
-        "AWS Step Functions",
-        "Databricks",
-        "Apache Spark",
-        "Snowflake",
-      ],
-    },
-    {
-      title: "Data & Analytics",
-      icon: Database,
-      color: "accent",
-      skills: [
-        "Power BI",
-        "Tableau",
-        "Streamlit",
-        "Data Pipelines",
-        "A/B Testing",
-        "ETL",
-      ],
-    },
-    {
-      title: "MLOps & DevOps",
-      icon: TrendingUp,
-      color: "primary",
-      skills: [
-        "Git",
-        "CI/CD",
-        "RESTful APIs",
-        "FastAPI",
-        "MLOps",
-        "Secure-by-Design",
+        "Feature Engineering",
       ],
     },
     {
@@ -60,12 +21,49 @@ const Skills = () => {
       icon: Bot,
       color: "secondary",
       skills: [
-        "GPT-4",
+        "Generative AI",
+        "Large Language Models",
+        "RAG",
+        "NLP",
         "Prompt Engineering",
-        "Vector Embeddings",
-        "Semantic Search",
-        "RAG Architecture",
-        "LLM Pipelines",
+        "Agentic AI",
+      ],
+    },
+    {
+      title: "Data & Analytics",
+      icon: Database,
+      color: "accent",
+      skills: [
+        "Tableau",
+        "Power BI",
+        "A/B Testing",
+        "Predictive Modeling",
+        "Statistics",
+        "Probability",
+      ],
+    },
+    {
+      title: "Cloud & Infrastructure",
+      icon: Cloud,
+      color: "primary",
+      skills: [
+        "AWS",
+        "Data Pipelines",
+        "ETL",
+        "Docker",
+        "Streamlit",
+      ],
+    },
+    {
+      title: "MLOps & DevOps",
+      icon: TrendingUp,
+      color: "secondary",
+      skills: [
+        "MLflow",
+        "MLOps",
+        "CI/CD",
+        "REST APIs",
+        "FastAPI",
       ],
     },
     {
@@ -73,13 +71,25 @@ const Skills = () => {
       icon: Brain,
       color: "accent",
       skills: [
+        "Deep Learning",
         "CNNs",
-        "LSTM",
         "Computer Vision",
         "OpenCV",
-        "Model Quantization",
-        "Edge Computing",
+        "Model Evaluation",
       ],
+    },
+  ];
+
+  const certifications = [
+    {
+      name: "Google Data Analytics Professional Certificate",
+      issuer: "Google",
+      icon: "📊",
+    },
+    {
+      name: "IBM RAG and Agentic AI Professional Certificate",
+      issuer: "IBM",
+      icon: "🤖",
     },
   ];
 
@@ -174,9 +184,34 @@ const Skills = () => {
                       style={{ width: `${skill.level}%`, animationDelay: `${index * 0.1}s` }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-float" />
-                    </div>
-                  </div>
+        </div>
+
+        {/* Professional Certifications */}
+        <div className="mt-16 relative p-10 rounded-2xl bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-md border border-border animate-fade-in overflow-hidden">
+          <div className="absolute top-4 right-4">
+            <Award className="h-6 w-6 text-accent/30 animate-pulse" />
+          </div>
+          <div className="relative">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-2">Professional Certifications</h2>
+              <p className="text-muted-foreground">Industry-recognized credentials</p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {certifications.map((cert, index) => (
+                <div
+                  key={index}
+                  className="group relative p-6 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border hover:border-primary/40 transition-all hover:scale-[1.02] hover:shadow-xl"
+                >
+                  <div className="text-4xl mb-4">{cert.icon}</div>
+                  <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{cert.name}</h3>
+                  <p className="text-sm text-muted-foreground">Issued by {cert.issuer}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
               ))}
             </div>
           </div>
