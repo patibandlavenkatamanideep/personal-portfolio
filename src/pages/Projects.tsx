@@ -302,6 +302,25 @@ const allProjects: Project[] = [
   },
   // NLP & Automation
   {
+    title: "AI Trip Planner",
+    subtitle: "Agentic AI Travel Assistant",
+    description: "An intelligent trip planning application powered by Agentic AI that generates personalized travel itineraries using LLM agents, prompt engineering, and tool orchestration for destination research, scheduling, and recommendations.",
+    tech: ["Python", "Agentic AI", "LLM", "Prompt Engineering", "Streamlit"],
+    metrics: ["AI Agents", "Auto Itinerary", "Tool Orchestration"],
+    icon: Bot,
+    color: "accent",
+    gradient: "from-accent to-primary",
+    categoryId: "nlp",
+    githubUrl: "https://github.com/patibandlavenkatamanideep/AI_Trip_Planner",
+    details: {
+      problem: "Planning trips is time-consuming, requiring research across multiple sources for destinations, accommodations, activities, and logistics.",
+      solution: "Built an agentic AI system that autonomously researches destinations, creates optimized itineraries, and provides personalized travel recommendations using LLM-powered agents and tool orchestration.",
+      features: ["LLM-powered travel agents", "Prompt library for trip planning", "Tool-based destination research", "Automated itinerary generation", "Custom exception handling & logging", "Modular agent architecture"],
+      impact: ["Automated end-to-end trip planning", "Personalized travel recommendations", "Reduced planning time significantly", "Scalable agent-based architecture"],
+      timeline: "2 months"
+    }
+  },
+  {
     title: "Automated Job Application System",
     subtitle: "LLM-Powered Workflow Automation",
     description: "Intelligent automation with GPT-4 APIs for resume optimization and skills extraction, reducing manual effort by 90% through multi-stage LLM pipeline and workflow orchestration.",
