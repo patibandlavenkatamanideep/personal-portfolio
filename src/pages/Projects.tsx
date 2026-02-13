@@ -304,19 +304,19 @@ const allProjects: Project[] = [
   {
     title: "AI Trip Planner",
     subtitle: "Agentic AI Travel Assistant",
-    description: "An intelligent trip planning application powered by Agentic AI that generates personalized travel itineraries using LLM agents, prompt engineering, and tool orchestration for destination research, scheduling, and recommendations.",
+    description: "An agentic AI-powered travel planner that generates detailed day-by-day itineraries with hotel recommendations, cost breakdowns, restaurant suggestions, attractions, and transportation guides for any destination worldwide.",
     tech: ["Python", "Agentic AI", "LLM", "Prompt Engineering", "Streamlit"],
-    metrics: ["AI Agents", "Auto Itinerary", "Tool Orchestration"],
+    metrics: ["Day-by-Day Plans", "Cost Breakdowns", "Full Itineraries"],
     icon: Bot,
     color: "accent",
     gradient: "from-accent to-primary",
     categoryId: "nlp",
     githubUrl: "https://github.com/patibandlavenkatamanideep/AI_Trip_Planner",
     details: {
-      problem: "Planning trips is time-consuming, requiring research across multiple sources for destinations, accommodations, activities, and logistics.",
-      solution: "Built an agentic AI system that autonomously researches destinations, creates optimized itineraries, and provides personalized travel recommendations using LLM-powered agents and tool orchestration.",
-      features: ["LLM-powered travel agents", "Prompt library for trip planning", "Tool-based destination research", "Automated itinerary generation", "Custom exception handling & logging", "Modular agent architecture"],
-      impact: ["Automated end-to-end trip planning", "Personalized travel recommendations", "Reduced planning time significantly", "Scalable agent-based architecture"],
+      problem: "Planning trips is time-consuming, requiring research across multiple sources for destinations, accommodations, restaurants, activities, budgets, and transportation logistics.",
+      solution: "Built an agentic AI travel planner that autonomously generates comprehensive trip plans including day-by-day itineraries, hotel options with pricing, detailed cost breakdowns, restaurant recommendations, and transportation guides.",
+      features: ["Day-by-day detailed itinerary generation", "Hotel recommendations with pricing", "Per-day and total cost breakdown", "Restaurant and dining suggestions", "Attraction and activity planning", "Transportation and logistics guide", "Modular agent architecture with tool orchestration", "Custom prompt library for travel planning"],
+      impact: ["Complete trip plans generated in seconds", "Detailed budgets with per-day expense estimates", "Personalized recommendations for any destination", "Scalable agentic architecture for complex planning"],
       timeline: "2 months"
     }
   },
