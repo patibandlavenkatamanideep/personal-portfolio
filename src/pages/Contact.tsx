@@ -92,7 +92,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: "Location",
-      value: "New Haven, CT, USA",
+      value: "Irvine, CA, USA (Willing to Relocate)",
       color: "primary",
     },
   ];
