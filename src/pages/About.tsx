@@ -11,17 +11,17 @@ const scrollToSection = (sectionId: string) => {
 const About = () => {
   const education = [
     {
-      degree: "Master of Science in Computer Science and Information Technology",
+      degree: "Master of Science in Computer Science",
       institution: "Sacred Heart University, Fairfield, CT",
-      period: "GPA: 3.8",
-      highlight: "March 2025",
+      period: "GPA: 3.8/4",
+      highlight: "Jan 2024 – May 2025",
       icon: GraduationCap,
     },
     {
-      degree: "Bachelor of Information Technology",
+      degree: "Bachelor of Technology, Information Technology",
       institution: "GMR Institute of Technology, Vizianagaram, India",
-      period: "GPA: 3.6",
-      highlight: "May 2023",
+      period: "GPA: 8.30/10",
+      highlight: "Aug 2019 – May 2023",
       icon: GraduationCap,
     },
   ];

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ExternalLink, Github, Sparkles, Award, Brain, Bot, Eye, Wrench, Cpu, Zap, TrendingUp, Database, BarChart3, Activity, Stethoscope, MessageSquare, Cloud, GraduationCap, Wine, Umbrella, Landmark, Trophy, Target, CheckCircle2, Layers, Clock, X, Download, Mail } from "lucide-react";
+import { ExternalLink, Github, Sparkles, Award, Brain, Bot, Eye, Wrench, Cpu, Zap, TrendingUp, Database, BarChart3, Activity, Stethoscope, MessageSquare, Cloud, GraduationCap, Wine, Umbrella, Landmark, Trophy, Target, CheckCircle2, Layers, Clock, X, Download, Mail, Rocket, Search } from "lucide-react";
 
 import RecruiterCTA from "@/components/RecruiterCTA";
 import { ProjectCategoryTabs, categories } from "@/components/ProjectCategoryTabs";
@@ -29,6 +29,25 @@ interface Project {
 
 const allProjects: Project[] = [
   // Healthcare & Medical AI
+  {
+    title: "Retrieval-Augmented Healthcare AI System",
+    subtitle: "RAG-Based Medical Chatbot",
+    description: "A RAG-based medical chatbot using LangChain, GPT, and Pinecone, indexing 10K+ clinical documents to improve response relevance by ~40% and reduce search latency by ~35% through optimized information retrieval.",
+    tech: ["LangChain", "GPT", "Pinecone", "AWS EC2", "Docker", "GitHub Actions", "CI/CD"],
+    metrics: ["10K+ Documents", "~40% Relevance ↑", "~35% Latency ↓"],
+    icon: Stethoscope,
+    color: "primary",
+    gradient: "from-primary to-secondary",
+    categoryId: "healthcare",
+    githubUrl: "https://github.com/patibandlavenkatamanideep/Complete-End-to-End-Medical-Chatbot-Using-LLMs",
+    details: {
+      problem: "Healthcare professionals need quick access to clinical information but searching through thousands of documents manually is slow and often returns irrelevant results.",
+      solution: "Developed a RAG-based medical chatbot using LangChain, GPT, and Pinecone, indexing 10K+ clinical documents with optimized retrieval and deployed on AWS with CI/CD.",
+      features: ["RAG pipeline with LangChain and GPT", "Pinecone vector database for 10K+ documents", "Optimized information retrieval", "AWS (EC2, ECR) deployment", "Docker containerization", "GitHub Actions CI/CD automation"],
+      impact: ["~40% improvement in response relevance", "~35% reduction in search latency", "~70% reduction in manual deployment effort", "24/7 clinical information access"],
+      timeline: "3 months"
+    }
+  },
   {
     title: "AI-Assisted Medical Image Diagnosis",
     subtitle: "Deep Learning Healthcare Pipeline",
@@ -85,6 +104,45 @@ const allProjects: Project[] = [
       features: ["MLFlow experiment tracking & model registry", "DVC for data and model version control", "Automated model retraining pipeline", "Deep learning classification model", "Reproducible training workflows", "Model performance monitoring"],
       impact: ["Fully reproducible ML experiments", "Automated model versioning", "Streamlined deployment process", "Improved model governance"],
       timeline: "4 months"
+    }
+  },
+  // NLP & Automation
+  {
+    title: "DeepSeek for Advanced Mathematical Reasoning",
+    subtitle: "Fine-Tuned LLM for Math",
+    description: "Fine-tuned the DeepSeek-R1-Distill-Qwen-1.5B model for advanced mathematical reasoning, achieving strong multi-step problem-solving performance and outperforming Claude 3.5 Sonnet in controlled benchmarks.",
+    tech: ["DeepSeek", "LoRA", "Unsloth", "Pandas", "Hugging Face", "PyTorch"],
+    metrics: ["98.8% Param Reduction", "2x Inference Speed", "Outperforms Claude 3.5"],
+    icon: Brain,
+    color: "accent",
+    gradient: "from-accent to-primary",
+    categoryId: "nlp",
+    githubUrl: "https://github.com/patibandlavenkatamanideep/DeepSeek-R1-Mathematical-Reasoning",
+    details: {
+      problem: "Large language models struggle with advanced multi-step mathematical reasoning, and full fine-tuning is computationally expensive and impractical for most teams.",
+      solution: "Fine-tuned DeepSeek-R1-Distill-Qwen-1.5B using LoRA for parameter-efficient training and Unsloth for inference optimization, achieving benchmark-beating math reasoning.",
+      features: ["LoRA-based parameter-efficient fine-tuning", "98.8% reduction in trainable parameters", "Unsloth integration for 2x inference speed", "Memory-efficient pandas preprocessing pipelines", "Reproducible and optimized AI training", "Controlled benchmark evaluation"],
+      impact: ["Outperformed Claude 3.5 Sonnet on math benchmarks", "98.8% fewer trainable parameters", "2x faster inference with Unsloth", "Reproducible training pipeline"],
+      timeline: "2 months"
+    }
+  },
+  {
+    title: "AI Trip Planner",
+    subtitle: "Agentic AI Travel Assistant",
+    description: "An agentic AI-powered travel planner using Groq-hosted Llama 3.3 (70B) and LangChain to generate multi-day itineraries with dynamic cost breakdowns and transit guidance from natural language inputs.",
+    tech: ["Python", "Groq", "Llama 3.3 70B", "LangChain", "YAML", "Streamlit"],
+    metrics: ["90%+ Accuracy", "~70% Less Manual Work", "Full Itineraries"],
+    icon: Bot,
+    color: "accent",
+    gradient: "from-accent to-primary",
+    categoryId: "nlp",
+    githubUrl: "https://github.com/patibandlavenkatamanideep/AI_Trip_Planner",
+    details: {
+      problem: "Planning trips is time-consuming, requiring research across multiple sources for destinations, accommodations, restaurants, activities, budgets, and transportation logistics.",
+      solution: "Engineered an agent-based trip planner using Groq-hosted Llama 3.3 (70B) and LangChain to generate multi-day itineraries with dynamic cost breakdowns and transit guidance.",
+      features: ["Groq-hosted Llama 3.3 (70B) LLM", "LangChain agent orchestration", "YAML-driven configuration", "Modular LLM pipeline", "Advanced prompt engineering", "Day-by-day itinerary generation", "Cost breakdowns and transit guidance"],
+      impact: ["Improved itinerary accuracy from ~60% to 90%+", "~70% reduction in manual workflow intervention", "Complete trip plans generated in seconds", "Scalable agentic architecture"],
+      timeline: "2 months"
     }
   },
   {
@@ -300,26 +358,7 @@ const allProjects: Project[] = [
       timeline: "1 month"
     }
   },
-  // NLP & Automation
-  {
-    title: "AI Trip Planner",
-    subtitle: "Agentic AI Travel Assistant",
-    description: "An agentic AI-powered travel planner that generates detailed day-by-day itineraries with hotel recommendations, cost breakdowns, restaurant suggestions, attractions, and transportation guides for any destination worldwide.",
-    tech: ["Python", "Agentic AI", "LLM", "Prompt Engineering", "Streamlit"],
-    metrics: ["Day-by-Day Plans", "Cost Breakdowns", "Full Itineraries"],
-    icon: Bot,
-    color: "accent",
-    gradient: "from-accent to-primary",
-    categoryId: "nlp",
-    githubUrl: "https://github.com/patibandlavenkatamanideep/AI_Trip_Planner",
-    details: {
-      problem: "Planning trips is time-consuming, requiring research across multiple sources for destinations, accommodations, restaurants, activities, budgets, and transportation logistics.",
-      solution: "Built an agentic AI travel planner that autonomously generates comprehensive trip plans including day-by-day itineraries, hotel options with pricing, detailed cost breakdowns, restaurant recommendations, and transportation guides.",
-      features: ["Day-by-day detailed itinerary generation", "Hotel recommendations with pricing", "Per-day and total cost breakdown", "Restaurant and dining suggestions", "Attraction and activity planning", "Transportation and logistics guide", "Modular agent architecture with tool orchestration", "Custom prompt library for travel planning"],
-      impact: ["Complete trip plans generated in seconds", "Detailed budgets with per-day expense estimates", "Personalized recommendations for any destination", "Scalable agentic architecture for complex planning"],
-      timeline: "2 months"
-    }
-  },
+  // NLP & Automation (continued)
   {
     title: "Automated Job Application System",
     subtitle: "LLM-Powered Workflow Automation",
@@ -360,13 +399,167 @@ const allProjects: Project[] = [
   },
 ];
 
+const INITIAL_PROJECT_COUNT = 6;
+
+const ProjectCard = ({ project, onDetailsClick }: { project: Project; onDetailsClick: (p: Project) => void }) => (
+  <div className="group relative p-6 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl overflow-hidden flex flex-col">
+    <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+    {project.isPrivate && (
+      <div className="absolute top-4 right-4 px-2 py-1 bg-muted/80 text-muted-foreground text-xs rounded-md">Private</div>
+    )}
+    <div className="relative flex-1 flex flex-col">
+      <div className="flex items-start gap-3 mb-4">
+        <div className={`p-2.5 rounded-lg bg-gradient-to-br from-${project.color}/20 to-${project.color}/10 border border-${project.color}/30 group-hover:scale-110 transition-transform`}>
+          <project.icon className={`h-5 w-5 text-${project.color}`} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2">{project.title}</h3>
+          <p className={`text-${project.color} text-sm font-medium mt-1`}>{project.subtitle}</p>
+        </div>
+      </div>
+      <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1">{project.description}</p>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.metrics.slice(0, 2).map((metric, idx) => (
+          <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-${project.color}/15 to-${project.color}/5 border border-${project.color}/20 text-xs font-semibold`}>
+            <Zap className={`h-3 w-3 text-${project.color}`} />
+            {metric}
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-1.5 mb-4">
+        {project.tech.slice(0, 4).map((tech, idx) => (
+          <span key={idx} className="px-2 py-1 rounded-md bg-muted/50 text-xs font-medium hover:bg-primary/10 transition-colors">{tech}</span>
+        ))}
+        {project.tech.length > 4 && (
+          <span className="px-2 py-1 rounded-md bg-muted/30 text-xs text-muted-foreground">+{project.tech.length - 4}</span>
+        )}
+      </div>
+      <div className="flex gap-2 mt-auto pt-2">
+        {project.githubUrl && (
+          <Button size="sm" variant="outline" className="flex-1 border-primary/30 hover:bg-primary/10 hover:scale-105 transition-all" onClick={() => window.open(project.githubUrl, '_blank')}>
+            <Github className="mr-1.5 h-3.5 w-3.5" />Code
+          </Button>
+        )}
+        <Button size="sm" variant="outline" className="flex-1 border-secondary/30 hover:bg-secondary/10 hover:scale-105 transition-all" onClick={() => onDetailsClick(project)}>
+          <ExternalLink className="mr-1.5 h-3.5 w-3.5" />Details
+        </Button>
+      </div>
+    </div>
+  </div>
+);
+
+const ProjectDetailsContent = ({ project, onClose }: { project: Project; onClose: () => void }) => (
+  <>
+    <DialogHeader>
+      <div className="flex items-start gap-4">
+        <div className={`p-3 rounded-xl bg-gradient-to-br from-${project.color}/20 to-${project.color}/10 border border-${project.color}/30`}>
+          <project.icon className={`h-6 w-6 text-${project.color}`} />
+        </div>
+        <div className="flex-1">
+          <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
+          <p className={`text-${project.color} font-medium mt-1`}>{project.subtitle}</p>
+        </div>
+      </div>
+    </DialogHeader>
+    <div className="space-y-6 mt-4">
+      <div className="flex flex-wrap gap-3">
+        {project.metrics.map((metric, idx) => (
+          <div key={idx} className={`flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-${project.color}/15 to-${project.color}/5 border border-${project.color}/20 font-semibold`}>
+            <Zap className={`h-4 w-4 text-${project.color}`} />
+            {metric}
+          </div>
+        ))}
+        {project.details?.timeline && (
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border font-semibold">
+            <Clock className="h-4 w-4 text-muted-foreground" />
+            {project.details.timeline}
+          </div>
+        )}
+      </div>
+      {project.details && (
+        <>
+          <div className="p-4 rounded-xl bg-muted/30 border border-border">
+            <div className="flex items-center gap-2 mb-2">
+              <Target className="h-5 w-5 text-destructive" />
+              <h4 className="font-semibold">The Problem</h4>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">{project.details.problem}</p>
+          </div>
+          <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
+            <div className="flex items-center gap-2 mb-2">
+              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <h4 className="font-semibold">The Solution</h4>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">{project.details.solution}</p>
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Layers className="h-5 w-5 text-secondary" />
+              <h4 className="font-semibold">Key Features</h4>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {project.details.features.map((feature, idx) => (
+                <div key={idx} className="flex items-start gap-2 p-3 rounded-lg bg-muted/20 border border-border/50">
+                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                  <span className="text-sm">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Award className="h-5 w-5 text-accent" />
+              <h4 className="font-semibold">Impact & Results</h4>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {project.details.impact.map((item, idx) => (
+                <div key={idx} className="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium">{item}</div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <Cpu className="h-5 w-5 text-muted-foreground" />
+          <h4 className="font-semibold">Tech Stack</h4>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((tech, idx) => (
+            <span key={idx} className="px-3 py-1.5 rounded-lg bg-muted/50 border border-border text-sm font-medium">{tech}</span>
+          ))}
+        </div>
+      </div>
+      <div className="flex gap-3 pt-4 border-t border-border">
+        {project.githubUrl && (
+          <Button className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90" onClick={() => window.open(project.githubUrl, '_blank')}>
+            <Github className="mr-2 h-4 w-4" />View Source Code
+          </Button>
+        )}
+        <Button variant="outline" className="flex-1" onClick={onClose}>
+          <X className="mr-2 h-4 w-4" />Close
+        </Button>
+      </div>
+    </div>
+  </>
+);
+
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [exploreCategoryFilter, setExploreCategoryFilter] = useState("all");
 
   const filteredProjects = activeCategory === "all" 
     ? allProjects 
     : allProjects.filter(p => p.categoryId === activeCategory);
+
+  const displayedProjects = filteredProjects.slice(0, INITIAL_PROJECT_COUNT);
+  const hasMoreProjects = filteredProjects.length > INITIAL_PROJECT_COUNT;
+
+  const exploreFilteredProjects = exploreCategoryFilter === "all"
+    ? allProjects
+    : allProjects.filter(p => p.categoryId === exploreCategoryFilter);
 
   const totalProjects = allProjects.length;
 
@@ -398,12 +591,12 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Recruiter CTA - Compact version at top */}
+        {/* Recruiter CTA */}
         <div className="mb-12 animate-fade-in">
           <RecruiterCTA variant="compact" />
         </div>
 
-        {/* Project Stats Overview */}
+        {/* Project Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
           {[
             { label: "Total Projects", value: `${totalProjects}+`, icon: Cpu },
@@ -419,14 +612,13 @@ const Projects = () => {
           ))}
         </div>
 
-
         {/* Category Tabs */}
         <ProjectCategoryTabs 
           activeCategory={activeCategory} 
           onCategoryChange={setActiveCategory} 
         />
 
-        {/* All Projects Grid */}
+        {/* Projects Grid - Show only top 6 */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30">
@@ -434,103 +626,34 @@ const Projects = () => {
             </div>
             <div>
               <h2 className="text-2xl font-bold">
-                {activeCategory === "all" ? "All Projects" : categories.find(c => c.id === activeCategory)?.name}
+                {activeCategory === "all" ? "Top Projects" : categories.find(c => c.id === activeCategory)?.name}
               </h2>
-              <p className="text-sm text-muted-foreground">{filteredProjects.length} project{filteredProjects.length > 1 ? 's' : ''}</p>
+              <p className="text-sm text-muted-foreground">
+                Showing {displayedProjects.length} of {filteredProjects.length} project{filteredProjects.length > 1 ? 's' : ''}
+              </p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group relative p-6 rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl overflow-hidden flex flex-col"
-              >
-                {/* Gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
-                
-                {/* Private badge */}
-                {project.isPrivate && (
-                  <div className="absolute top-4 right-4 px-2 py-1 bg-muted/80 text-muted-foreground text-xs rounded-md">
-                    Private
-                  </div>
-                )}
-
-                <div className="relative flex-1 flex flex-col">
-                  {/* Header */}
-                  <div className="flex items-start gap-3 mb-4">
-                    <div className={`p-2.5 rounded-lg bg-gradient-to-br from-${project.color}/20 to-${project.color}/10 border border-${project.color}/30 group-hover:scale-110 transition-transform`}>
-                      <project.icon className={`h-5 w-5 text-${project.color}`} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-lg leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                        {project.title}
-                      </h3>
-                      <p className={`text-${project.color} text-sm font-medium mt-1`}>
-                        {project.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
-                    {project.description}
-                  </p>
-
-                  {/* Metrics */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.metrics.slice(0, 2).map((metric, idx) => (
-                      <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-${project.color}/15 to-${project.color}/5 border border-${project.color}/20 text-xs font-semibold`}>
-                        <Zap className={`h-3 w-3 text-${project.color}`} />
-                        {metric}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tech.slice(0, 4).map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 rounded-md bg-muted/50 text-xs font-medium hover:bg-primary/10 transition-colors"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 4 && (
-                      <span className="px-2 py-1 rounded-md bg-muted/30 text-xs text-muted-foreground">
-                        +{project.tech.length - 4}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex gap-2 mt-auto pt-2">
-                    {project.githubUrl && (
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-1 border-primary/30 hover:bg-primary/10 hover:scale-105 transition-all"
-                        onClick={() => window.open(project.githubUrl, '_blank')}
-                      >
-                        <Github className="mr-1.5 h-3.5 w-3.5" />
-                        Code
-                      </Button>
-                    )}
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      className="flex-1 border-secondary/30 hover:bg-secondary/10 hover:scale-105 transition-all"
-                      onClick={() => setSelectedProject(project)}
-                    >
-                      <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
-                      Details
-                    </Button>
-                  </div>
-                </div>
-              </div>
+            {displayedProjects.map((project, index) => (
+              <ProjectCard key={index} project={project} onDetailsClick={setSelectedProject} />
             ))}
           </div>
+
+          {/* Explore More Projects Button */}
+          {hasMoreProjects && (
+            <div className="mt-10 text-center">
+              <Button
+                size="lg"
+                onClick={() => { setShowAllProjects(true); setExploreCategoryFilter(activeCategory); }}
+                className="group bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+              >
+                <Search className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                Explore More Projects ({filteredProjects.length - INITIAL_PROJECT_COUNT} more)
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* GitHub Profile CTA */}
@@ -569,127 +692,40 @@ const Projects = () => {
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card to-card/95 border-border">
           {selectedProject && (
-            <>
-              <DialogHeader>
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br from-${selectedProject.color}/20 to-${selectedProject.color}/10 border border-${selectedProject.color}/30`}>
-                    <selectedProject.icon className={`h-6 w-6 text-${selectedProject.color}`} />
-                  </div>
-                  <div className="flex-1">
-                    <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
-                    <p className={`text-${selectedProject.color} font-medium mt-1`}>{selectedProject.subtitle}</p>
-                  </div>
-                </div>
-              </DialogHeader>
-
-              <div className="space-y-6 mt-4">
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-3">
-                  {selectedProject.metrics.map((metric, idx) => (
-                    <div key={idx} className={`flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-${selectedProject.color}/15 to-${selectedProject.color}/5 border border-${selectedProject.color}/20 font-semibold`}>
-                      <Zap className={`h-4 w-4 text-${selectedProject.color}`} />
-                      {metric}
-                    </div>
-                  ))}
-                  {selectedProject.details?.timeline && (
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border font-semibold">
-                      <Clock className="h-4 w-4 text-muted-foreground" />
-                      {selectedProject.details.timeline}
-                    </div>
-                  )}
-                </div>
-
-                {selectedProject.details && (
-                  <>
-                    {/* Problem */}
-                    <div className="p-4 rounded-xl bg-muted/30 border border-border">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Target className="h-5 w-5 text-destructive" />
-                        <h4 className="font-semibold">The Problem</h4>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">{selectedProject.details.problem}</p>
-                    </div>
-
-                    {/* Solution */}
-                    <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
-                      <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
-                        <h4 className="font-semibold">The Solution</h4>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">{selectedProject.details.solution}</p>
-                    </div>
-
-                    {/* Features */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Layers className="h-5 w-5 text-secondary" />
-                        <h4 className="font-semibold">Key Features</h4>
-                      </div>
-                      <div className="grid sm:grid-cols-2 gap-2">
-                        {selectedProject.details.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start gap-2 p-3 rounded-lg bg-muted/20 border border-border/50">
-                            <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <span className="text-sm">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Impact */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-3">
-                        <Award className="h-5 w-5 text-accent" />
-                        <h4 className="font-semibold">Impact & Results</h4>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProject.details.impact.map((item, idx) => (
-                          <div key={idx} className="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium">
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                {/* Tech Stack */}
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Cpu className="h-5 w-5 text-muted-foreground" />
-                    <h4 className="font-semibold">Tech Stack</h4>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.tech.map((tech, idx) => (
-                      <span key={idx} className="px-3 py-1.5 rounded-lg bg-muted/50 border border-border text-sm font-medium">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-3 pt-4 border-t border-border">
-                  {selectedProject.githubUrl && (
-                    <Button 
-                      className="flex-1 bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                      onClick={() => window.open(selectedProject.githubUrl, '_blank')}
-                    >
-                      <Github className="mr-2 h-4 w-4" />
-                      View Source Code
-                    </Button>
-                  )}
-                  <Button 
-                    variant="outline" 
-                    className="flex-1"
-                    onClick={() => setSelectedProject(null)}
-                  >
-                    <X className="mr-2 h-4 w-4" />
-                    Close
-                  </Button>
-                </div>
-              </div>
-            </>
+            <ProjectDetailsContent project={selectedProject} onClose={() => setSelectedProject(null)} />
           )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Explore All Projects Modal */}
+      <Dialog open={showAllProjects} onOpenChange={setShowAllProjects}>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card to-card/95 border-border">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-bold flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30">
+                <Layers className="h-6 w-6 text-primary" />
+              </div>
+              All Projects
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="mt-4">
+            {/* Category filter inside modal */}
+            <div className="mb-6">
+              <ProjectCategoryTabs 
+                activeCategory={exploreCategoryFilter} 
+                onCategoryChange={setExploreCategoryFilter} 
+              />
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-6">{exploreFilteredProjects.length} project{exploreFilteredProjects.length > 1 ? 's' : ''}</p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {exploreFilteredProjects.map((project, index) => (
+                <ProjectCard key={index} project={project} onDetailsClick={(p) => { setShowAllProjects(false); setTimeout(() => setSelectedProject(p), 300); }} />
+              ))}
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
