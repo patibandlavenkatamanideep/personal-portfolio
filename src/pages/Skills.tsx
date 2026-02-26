@@ -85,11 +85,13 @@ const Skills = () => {
       name: "Google Data Analytics Professional Certificate",
       issuer: "Google",
       icon: "📊",
+      link: "https://www.coursera.org/account/accomplishments/specialization/S26MZPQHIDQ1",
     },
     {
       name: "IBM RAG and Agentic AI Professional Certificate",
       issuer: "IBM",
       icon: "🤖",
+      link: "https://www.coursera.org/account/accomplishments/specialization/JGL8AUKI3DIL",
     },
   ];
 
@@ -204,14 +206,20 @@ const Skills = () => {
             </div>
             <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {certifications.map((cert, index) => (
-                <div
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   key={index}
-                  className="group relative p-6 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border hover:border-primary/40 transition-all hover:scale-[1.02] hover:shadow-xl"
+                  className="group relative p-6 rounded-xl bg-gradient-to-br from-muted/30 to-muted/10 border border-border hover:border-primary/40 transition-all hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                 >
-                  <div className="text-4xl mb-4">{cert.icon}</div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-4xl">{cert.icon}</div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
                   <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{cert.name}</h3>
                   <p className="text-sm text-muted-foreground">Issued by {cert.issuer}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
